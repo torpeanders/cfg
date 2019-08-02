@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+
+setup_nix() {
+    packages="zsh"
+    sudo apt update -y
+    sudo apt upgrade -y
+    sudo apt install -y $packages
+}
+
+setup_osx() {
+    packages="zsh"
+    brew update
+    brew install $packages
+}
+
+case "$(uname -a)" in
+    *Ubuntu*)
+        setup_nix
+        ;;
+    Darwin*)
+        setup_osx
+        ;;
+    *)
+        echo "unknown os";
+        exit 1
+        ;;
+esac
