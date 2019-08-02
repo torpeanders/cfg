@@ -137,12 +137,12 @@ for_window [class="Pidgin"] border pixel
 for_window [class="^.*"] border pixel 1
 
 # power to the people
-exec --no-startup-id "~/bin/fuzzy_lock.sh init"
+exec --no-startup-id "~/.bin/fuzzy_lock.sh init"
 
 set $mode_power power
 bindsym Mod1+Control+l mode "$mode_power"
 mode "$mode_power" {
-    bindsym l mode "default", exec --no-startup-id $HOME/bin/fuzzy_lock.sh lock
+    bindsym l mode "default", exec --no-startup-id $HOME/.bin/fuzzy_lock.sh lock
     bindsym e mode "default", exec --no-startup-id $HOME/.config/i3/i3exit logout
     bindsym s mode "default", exec --no-startup-id $HOME/.config/i3/i3exit suspend
     bindsym h mode "default", exec --no-startup-id $HOME/.config/i3/i3exit hibernate

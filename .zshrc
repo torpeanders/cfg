@@ -8,6 +8,12 @@ if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
 
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.bin" ] ; then
+    export PATH="$HOME/.bin:$PATH"
+fi
+
+
 # set PATH so it includes cargo binaries if they exist
 if [ -d "$HOME/.cargo/bin" ] ; then
     export PATH="$HOME/.cargo/bin:$PATH"
