@@ -6,6 +6,11 @@ setup_nix() {
     sudo apt update -y
     sudo apt upgrade -y
     sudo apt install -y $packages
+
+    if [ ! "$SHELL" -ef "$(which zsh)" ]; then
+        echo "Change SHELL to $(which zsh)..."
+        chsh -s $(which zsh)
+    fi
 }
 
 setup_osx() {
