@@ -103,6 +103,9 @@ if type ssh-wrapper > /dev/null 2>&1; then
     }
 fi
 
+
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
 # Aliases
 alias a='fasd -a'        # any
 alias s='fasd -si'       # show / search / select
