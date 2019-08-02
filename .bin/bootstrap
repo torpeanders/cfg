@@ -1,29 +1,39 @@
 #!/usr/bin/env bash
 
+setup_cmn() {
+    echo "=> Clone tmux-themepack"
+    if [ ! -e ~/.tmux-themepack ]; then
+        git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
+    fi
+}
 
 setup_nix() {
-    packages="zsh vim"
+    echo "=> Install apt packages"
+    packages="zsh vim tmux"
     sudo apt update -y
     sudo apt upgrade -y
     sudo apt install -y $packages
 
     if [ ! "$SHELL" -ef "$(which zsh)" ]; then
-        echo "Change SHELL to $(which zsh)..."
+        echo "=> Change SHELL to $(which zsh)..."
         chsh -s $(which zsh)
     fi
 }
 
 setup_osx() {
-    packages="zsh"
+    echo "=> Install brew packages"
+    packages="zsh tmux"
     brew update
     brew install $packages
 }
 
 case "$(uname -a)" in
     *Ubuntu*)
+        setup_cmn
         setup_nix
         ;;
     Darwin*)
+        setup_cmn
         setup_osx
         ;;
     *)
