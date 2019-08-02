@@ -20,12 +20,19 @@ setup_cmn()
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
         ~/.fzf/install
     fi
+
+    if [ ! -e ~/.emacs.d ]; then
+        git clone git@github.com:syl20bnr/spacemacs.git ~/.emacs.d -b develop
+    fi
 }
 
 setup_nix()
 {
     echo "=> Install apt packages"
-    packages="arandr cargo ncdu htop build-essential cmake tig silversearcher-ag multitail zsh vim tmux mpv"
+    packages="emacs arandr cargo ncdu htop build-essential cmake tig silversearcher-ag multitail zsh vim tmux mpv"
+    if dpkg -l ubuntu-desktop > /dev/null 2>&1; then
+        packages+=(i3 x11)
+    fi
     sudo apt update -y
     sudo apt upgrade -y
     sudo apt install -y $packages
