@@ -1,13 +1,29 @@
 #!/usr/bin/env bash
 
-setup_cmn() {
-    echo "=> Clone tmux-themepack"
+setup_cmn()
+{
     if [ ! -e ~/.tmux-themepack ]; then
+        echo "=> Clone tmux-themepack"
         git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
+    fi
+
+    if ! which fasd 2>&1 > /dev/null; then
+        echo "=> Clone fasd"
+        rm -rf /tmp/fasd
+        git clone https://github.com/clvv/fasd.git /tmp/fasd
+        cd /tmp/fasd
+        sudo make install
+    fi
+
+    if ! which fzf 2>&1 > /dev/null; then
+        echo "=> Clone fzf"
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install
     fi
 }
 
-setup_nix() {
+setup_nix()
+{
     echo "=> Install apt packages"
     packages="arandr cargo ncdu htop build-essential cmake tig silversearcher-ag multitail zsh vim tmux mpv"
     sudo apt update -y
@@ -27,7 +43,8 @@ setup_nix() {
 
 }
 
-setup_osx() {
+setup_osx()
+{
     if ! which brew 2>&1 > /dev/null; then
         echo "=> Install homebrew"
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
