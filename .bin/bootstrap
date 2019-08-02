@@ -9,7 +9,7 @@ setup_cmn() {
 
 setup_nix() {
     echo "=> Install apt packages"
-    packages="zsh vim tmux"
+    packages="zsh vim tmux mpv"
     sudo apt update -y
     sudo apt upgrade -y
     sudo apt install -y $packages
@@ -22,7 +22,7 @@ setup_nix() {
 
 setup_osx() {
     echo "=> Install brew packages"
-    packages="zsh tmux"
+    packages="zsh tmux mpv"
     brew update
     brew install $packages
 }
