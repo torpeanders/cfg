@@ -2,7 +2,7 @@
 
 
 setup_nix() {
-    packages="zsh"
+    packages="zsh vim"
     sudo apt update -y
     sudo apt upgrade -y
     sudo apt install -y $packages
