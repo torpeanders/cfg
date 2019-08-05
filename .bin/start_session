@@ -22,7 +22,7 @@ setxkbmap no
 case "$DESKTOP_SESSION" in
     *i3)
         msg "setup i3"
-        $HOME/bin/xsetup.sh
+        $HOME/.bin/xsetup.sh
         ;;
     *)
         msg "skip dpi voodoo for desktop session: $DESKTOP_SESSION"
