@@ -34,11 +34,6 @@ setup_nix()
     sudo apt upgrade -y
     sudo apt install -y $packages
 
-    if dpkg -l ubuntu-desktop > /dev/null 2>&1; then
-        packages_desktop="i3lock i3status i3blocks rofi fonts-font-awesome udiskie xbacklight xss-lock feh dex xsel"
-        sudo apt install -y $packages_desktop
-    fi
-
     if [ ! "$SHELL" -ef "$(which zsh)" ]; then
         echo "=> Change SHELL to $(which zsh)"
         chsh -s $(which zsh)

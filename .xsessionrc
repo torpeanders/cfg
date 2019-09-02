@@ -1,3 +1,0 @@
-STARTUP="$HOME/.bin/start_session $STARTUP"
-
-
