@@ -29,7 +29,7 @@ setup_cmn()
 setup_nix()
 {
     echo "=> Install apt packages"
-    packages="emacs arandr cargo ncdu htop build-essential cmake tig silversearcher-ag multitail zsh vim tmux mpv"
+    packages="curl emacs arandr cargo ncdu htop build-essential cmake tig silversearcher-ag multitail zsh vim tmux mpv"
     sudo apt update -y
     sudo apt upgrade -y
     sudo apt install -y $packages
@@ -41,7 +41,7 @@ setup_nix()
 
     if ! which rg 2>&1 > /dev/null; then
         echo "=> Installing ripgrep"
-        curl -ssf https://static.rust-lang.org/rustup.sh | sh
+        #curl -ssf https://static.rust-lang.org/rustup.sh | sh
         cargo install ripgrep
     fi
 
