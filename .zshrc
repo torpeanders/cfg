@@ -54,15 +54,15 @@ antigen bundle mafredri/zsh-async
 # Load the theme.
 antigen theme denysdovhan/spaceship-prompt spaceship
 
-SPACESHIP_DIR_COLOR="blue"
-SPACESHIP_EXIT_CODE_PREFIX="["
-SPACESHIP_EXIT_CODE_SUFFIX="]"
-SPACESHIP_EXIT_CODE_SYMBOL=""
-SPACESHIP_EXIT_CODE_SHOW="true"
-SPACESHIP_TIME_SHOW="true"
-SPACESHIP_GIT_STATUS_DIVERGED="$SPACESHIP_GIT_STATUS_AHEAD$SPACESHIP_GIT_STATUS_BEHIND"
-#SPACESHIP_HOST_SHOW="false"
-#SPACESHIP_USER_SHOW="false"
+# SPACESHIP_DIR_COLOR="blue"
+# SPACESHIP_EXIT_CODE_PREFIX="["
+# SPACESHIP_EXIT_CODE_SUFFIX="]"
+# SPACESHIP_EXIT_CODE_SYMBOL=""
+# SPACESHIP_EXIT_CODE_SHOW="true"
+# SPACESHIP_TIME_SHOW="true"
+# SPACESHIP_GIT_STATUS_DIVERGED="$SPACESHIP_GIT_STATUS_AHEAD$SPACESHIP_GIT_STATUS_BEHIND"
+# SPACESHIP_HOST_SHOW="false"
+# SPACESHIP_USER_SHOW="false"
 
 # OS specific plugins
 if [[ $CURRENT_OS == 'OS X' ]]; then
@@ -109,7 +109,6 @@ if type ssh-wrapper > /dev/null 2>&1; then
     }
 fi
 
-
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # Aliases
@@ -142,3 +141,5 @@ DISABLE_AUTO_TITLE="true"
 unsetopt share_history
 
 export EDITOR=vim
+
+export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
