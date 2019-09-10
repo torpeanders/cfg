@@ -53,6 +53,7 @@ This function should only modify configuration layer settings."
      fasd
      git
      ivy
+     java
      javascript
      ;; markdown
      multiple-cursors
