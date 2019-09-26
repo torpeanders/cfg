@@ -132,6 +132,8 @@ alias rm='rm -i'
 
 alias fuck='sudo $(fc -ln -1)'
 
+reboot() { echo  "I'm pretty sure you screwed up..."; }
+
 # Misc zsh setup
 zstyle ':completion:*' special-dirs true
 zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
