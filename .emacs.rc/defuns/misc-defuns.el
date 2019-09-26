@@ -3,13 +3,14 @@
 (defun anr/linux-c-mode-offset ()
   "C mode with adjusted defaults for use with the Linux kernel."
   (interactive)
-  (setq-default indent-tabs-mode t)
+  (setq tab-width 8)
+  (setq indent-tabs-mode t)
   (setq c-basic-offset 8))
 
 (defun anr/uboot-c-mode-offset ()
   "C mode with adjusted defaults for use with U-Boot."
   (interactive)
-  (setq-default indent-tabs-mode t)
+  (setq indent-tabs-mode t)
   (setq c-basic-offset 2))
 
 (defun anr/normal-c-mode-offset ()
@@ -17,6 +18,12 @@
   (interactive)
   (setq-default indent-tabs-mode nil)
   (setq c-basic-offset 4))
+
+(defun anr/dts-mode-offset ()
+  "Dts* files."
+  (interactive)
+  (setq tab-width 8)
+  (setq indent-tabs-mode t))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Compilation defuns
