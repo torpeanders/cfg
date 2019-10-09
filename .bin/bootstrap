@@ -29,7 +29,7 @@ setup_cmn()
 setup_nix()
 {
     echo "=> Install apt packages"
-    packages="curl emacs arandr cargo ncdu htop build-essential cmake tig silversearcher-ag multitail zsh vim tmux mpv rofi"
+    packages="curl emacs dex arandr cargo ncdu htop build-essential cmake tig silversearcher-ag multitail zsh vim tmux mpv rofi"
     sudo apt update -y
     sudo apt upgrade -y
     sudo apt install -y $packages
