@@ -47,7 +47,8 @@ This function should only modify configuration layer settings."
      better-defaults
      (cmake :variables
             cmake-enable-cmake-ide-support t)
-     c-c++
+     (c-c++ :variables
+            c-c++-enable-google-style t)
      docker
      emacs-lisp
      fasd
@@ -222,8 +223,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(doom-Iosvkem
-                         nimbus
+   dotspacemacs-themes '(nimbus
                          spacemacs-dark
                          spacemacs-light)
 
@@ -243,7 +243,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 9.0
+                               :size 12.0
                                :weight normal
                                :width normal)
 
