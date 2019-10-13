@@ -20,6 +20,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'embear/vim-localvimrc'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 set breakindent
@@ -48,6 +50,9 @@ set laststatus=2
 
 " color scheme
 colorscheme twilight256
+
+" nerdtree
+map <C-o> :NERDTreeToggle<CR>
 
 " tmux
 let g:tmux_navigator_disable_when_zoomed = 1
