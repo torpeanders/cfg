@@ -38,23 +38,18 @@ set wildmenu
 
 let mapleader=","
 
-" Set working directory
-nnoremap <leader>. :lcd %:p:h<CR>
+highlight ColorColumn ctermbg=red
+call matchadd('ColorColumn', '\%81v', 100)
+
+let g:localvimrc_ask = 0
 
 " To fix that lightline doesn't show up
 set laststatus=2
 
-let g:sierra_Twilight = 1
-colorscheme sierra
+" color scheme
+colorscheme twilight256
 
-highlight ColorColumn ctermbg=red
-call matchadd('ColorColumn', '\%81v', 100)
-
-nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
-nnoremap <silent> <Leader><Enter> :Buffers<CR>
-
-let g:localvimrc_ask = 0
-
+" tmux
 let g:tmux_navigator_disable_when_zoomed = 1
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <left> :TmuxNavigateLeft<cr>
@@ -62,9 +57,15 @@ nnoremap <silent> <down> :TmuxNavigateDown<cr>
 nnoremap <silent> <up> :TmuxNavigateUp<cr>
 nnoremap <silent> <right> :TmuxNavigateRight<cr>
 
+" Set working directory
+nnoremap <leader>. :lcd %:p:h<CR>
+
+" fzf
 nnoremap <C-p> :Files<Cr>
 nnoremap <C-t> :Files<Cr>
+nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 
+" rg
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
@@ -74,5 +75,8 @@ command! -bang -nargs=* Rg
 
 nnoremap <C-f> :Rg<Cr>
 nnoremap <C-g> :Rg<Cr>
+
+" Stuff
+nnoremap <silent> <Leader><Enter> :Buffers<CR>
 
 autocmd VimResized * wincmd =
