@@ -82,7 +82,8 @@ antigen apply
 eval "$(fasd --init posix-alias zsh-hook)"
 
 # FZF
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+#export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Environment
@@ -131,6 +132,9 @@ alias secd='sd -e emacsclient'
 alias rm='rm -i'
 
 alias fuck='sudo $(fc -ln -1)'
+
+alias vim="nvim"
+alias vi="nvim"
 
 reboot() { echo  "I'm pretty sure you screwed up..."; }
 
