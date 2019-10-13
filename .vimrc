@@ -15,7 +15,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive', { 'on': 'Gstatus' }
-"Plug 'junegunn/fzf'
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'embear/vim-localvimrc'
@@ -46,7 +45,7 @@ nnoremap <leader>. :lcd %:p:h<CR>
 set laststatus=2
 
 let g:sierra_Twilight = 1
-colorscheme sierra 
+colorscheme sierra
 
 highlight ColorColumn ctermbg=red
 call matchadd('ColorColumn', '\%81v', 100)
@@ -62,5 +61,18 @@ nnoremap <silent> <left> :TmuxNavigateLeft<cr>
 nnoremap <silent> <down> :TmuxNavigateDown<cr>
 nnoremap <silent> <up> :TmuxNavigateUp<cr>
 nnoremap <silent> <right> :TmuxNavigateRight<cr>
+
+nnoremap <C-p> :Files<Cr>
+nnoremap <C-t> :Files<Cr>
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+  \   <bang>0)
+
+nnoremap <C-f> :Rg<Cr>
+nnoremap <C-g> :Rg<Cr>
 
 autocmd VimResized * wincmd =
