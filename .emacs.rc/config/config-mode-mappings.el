@@ -1,14 +1,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Install modes not bundled with emacs
-(use-package bitbake :ensure t :defer t)
 (use-package dockerfile-mode :ensure t :defer t)
 (use-package dts-mode :ensure t :defer t)
 (use-package haskell-mode :ensure t :defer t)
 (use-package jade-mode :ensure t :defer t)
 (use-package js2-mode :ensure t :defer t)
-(use-package nsis-mode :ensure t :defer t)
 (use-package qml-mode :ensure t :defer t)
-(use-package qt-pro-mode :ensure t :defer t)
 (use-package rainbow-mode :ensure t :delight :defer t)
 (use-package sws-mode :ensure t :defer t)
 (use-package systemd :ensure t :defer t)
