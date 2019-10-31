@@ -48,12 +48,8 @@ let g:localvimrc_ask = 0
 " To fix that lightline doesn't show up
 set laststatus=2
 
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
-
 " color scheme
-colorscheme wombat256mod
+colorscheme gruvbox
 
 " nerdtree
 map <C-o> :NERDTreeToggle<CR>
