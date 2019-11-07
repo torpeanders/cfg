@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.scripts" ] ; then
     export PATH="$HOME/.scripts:$PATH"
@@ -47,12 +54,12 @@ antigen bundle pip
 antigen bundle python
 antigen bundle command-not-found
 antigen bundle common-aliases
-antigen bundle https://github.com/denysdovhan/spaceship-prompt
+# antigen bundle https://github.com/denysdovhan/spaceship-prompt
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle mafredri/zsh-async
-
+antigen theme romkatv/powerlevel10k
 # Load the theme.
-antigen theme denysdovhan/spaceship-prompt spaceship
+# antigen theme denysdovhan/spaceship-prompt spaceship
 
 # SPACESHIP_DIR_COLOR="blue"
 # SPACESHIP_EXIT_CODE_PREFIX="["
@@ -149,3 +156,6 @@ unsetopt share_history
 export EDITOR=vim
 
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
