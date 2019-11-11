@@ -13,6 +13,8 @@ endif
 " vim-plug init code
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
+Plug 'ap/vim-buftabline'
+Plug 'jeetsukumaran/vim-buffergator'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive', { 'on': 'Gstatus' }
 Plug '~/.fzf'
@@ -48,6 +50,10 @@ let g:localvimrc_ask = 0
 " To fix that lightline doesn't show up
 set laststatus=2
 
+" vim-buftabline
+let g:buftabline_show = 2       " Always show
+let g:buftabline_numbers = 2    " Ordinal from left-to-right
+
 " color scheme
 colorscheme gruvbox
 
@@ -64,6 +70,10 @@ nnoremap <silent> <right> :TmuxNavigateRight<cr>
 
 " Set working directory
 nnoremap <leader>. :lcd %:p:h<CR>
+
+" Navigate tabs
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
 
 " fzf
 nnoremap <C-p> :Files<Cr>

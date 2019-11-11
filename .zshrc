@@ -157,5 +157,9 @@ export EDITOR=vim
 
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Any local stuff
+[[ ! -f ~/.zshrc-local.zsh ]] || source ~/.zshrc-local.zsh
