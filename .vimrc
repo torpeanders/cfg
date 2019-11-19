@@ -39,6 +39,8 @@ set hlsearch
 syntax on
 set wildmode=longest:full,full
 set wildmenu
+set splitbelow
+set splitright
 
 let mapleader=","
 
@@ -75,8 +77,18 @@ nnoremap <leader>. :lcd %:p:h<CR>
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
+" Navigate splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+nnoremap <silent> <C-Right> <c-w>l
+nnoremap <silent> <C-Left> <c-w>h
+nnoremap <silent> <C-Up> <c-w>k
+nnoremap <silent> <C-Down> <c-w>j
+
 " fzf
-nnoremap <C-p> :Files<Cr>
 nnoremap <C-t> :Files<Cr>
 nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 
