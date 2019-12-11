@@ -66,5 +66,6 @@
 (add-to-list 'auto-mode-alist '("\\.pro$" . qt-pro-mode))
 (add-to-list 'auto-mode-alist '("\\.pri$" . qt-pro-mode))
 (add-to-list 'auto-mode-alist '("\\.bp\\'" . soong-mode))
+(add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-mode))
 
 (provide 'config-mode-mappings)
