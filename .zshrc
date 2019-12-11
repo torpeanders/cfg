@@ -54,22 +54,9 @@ antigen bundle pip
 antigen bundle python
 antigen bundle command-not-found
 antigen bundle common-aliases
-# antigen bundle https://github.com/denysdovhan/spaceship-prompt
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle mafredri/zsh-async
 antigen theme romkatv/powerlevel10k
-# Load the theme.
-# antigen theme denysdovhan/spaceship-prompt spaceship
-
-# SPACESHIP_DIR_COLOR="blue"
-# SPACESHIP_EXIT_CODE_PREFIX="["
-# SPACESHIP_EXIT_CODE_SUFFIX="]"
-# SPACESHIP_EXIT_CODE_SYMBOL=""
-# SPACESHIP_EXIT_CODE_SHOW="true"
-# SPACESHIP_TIME_SHOW="true"
-# SPACESHIP_GIT_STATUS_DIVERGED="$SPACESHIP_GIT_STATUS_AHEAD$SPACESHIP_GIT_STATUS_BEHIND"
-# SPACESHIP_HOST_SHOW="false"
-# SPACESHIP_USER_SHOW="false"
 
 # OS specific plugins
 if [[ $CURRENT_OS == 'OS X' ]]; then
