@@ -52,7 +52,7 @@ exec swayidle -w \
 
 ### Key bindings
 
-# Basics:
+# Basics
 
     # Start a terminal
     bindsym $mod+Return exec $term
@@ -76,7 +76,7 @@ exec swayidle -w \
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
-# Moving around:
+# Moving around
 
     # Move your focus around
     bindsym $mod+$left focus left
@@ -100,7 +100,7 @@ exec swayidle -w \
     bindsym $mod+Shift+Up move up
     bindsym $mod+Shift+Right move right
 
-# Workspaces:
+# Workspaces
 
     # Switch to workspace
     bindsym $mod+1 workspace 1
@@ -127,7 +127,7 @@ exec swayidle -w \
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
-# Layout stuff:
+# Layout stuff
 
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
@@ -152,7 +152,7 @@ exec swayidle -w \
     # Move focus to the parent container
     bindsym $mod+a focus parent
 
-# Scratchpad:
+# Scratchpad
 
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
@@ -164,7 +164,7 @@ exec swayidle -w \
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
 
-# Resizing containers:
+# Resizing containers
 
 mode "resize" {
     # left will shrink the containers width
@@ -201,7 +201,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
 bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 
-### TODO: Status Bar:
+### TODO: Status Bar
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
