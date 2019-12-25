@@ -2,25 +2,6 @@
 
 setup_cmn()
 {
-    if [ ! -e ~/.tmux-themepack ]; then
-        echo "=> Clone tmux-themepack"
-        git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
-    fi
-
-    if ! which fasd 2>&1 > /dev/null; then
-        echo "=> Clone fasd"
-        rm -rf /tmp/fasd
-        git clone https://github.com/clvv/fasd.git /tmp/fasd
-        cd /tmp/fasd
-        sudo make install
-    fi
-
-    if ! which fzf 2>&1 > /dev/null; then
-        echo "=> Clone fzf"
-        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-        ~/.fzf/install
-    fi
-
     if [ ! -e ~/.emacs.d ]; then
         git clone git@github.com:syl20bnr/spacemacs.git ~/.emacs.d -b develop
     fi
@@ -29,22 +10,19 @@ setup_cmn()
 setup_nix()
 {
     echo "=> Install apt packages"
-    packages="curl neovim python-neovim python3-neovim emacs dex arandr cargo ncdu htop build-essential cmake tig silversearcher-ag multitail zsh vim tmux mpv rofi tldr"
-    sudo apt update -y
-    sudo apt upgrade -y
-    sudo apt install -y $packages
+    editors="emacsneovim python3-neovim vim"
+    windowmanagers="sway sway-backgrounds swaybg swayidle swaylock"
+    devutils="cargo cmake build-essential tig"
+    miscutils="curl dex fasd fzf htop mpv multitail ncdu ripgrep rofi tldr tmux tmux-themepack-jimeh zsh"
+    packages="$editors $windowmanagers $devutils $miscutils"
+    sudo apt-get update -qq -y
+    sudo apt-get upgrade -qq -y
+    sudo apt-get install -qq -y $packages
 
     if [ ! "$SHELL" -ef "$(which zsh)" ]; then
         echo "=> Change SHELL to $(which zsh)"
         chsh -s $(which zsh)
     fi
-
-    if ! which rg 2>&1 > /dev/null; then
-        echo "=> Installing ripgrep"
-        #curl -ssf https://static.rust-lang.org/rustup.sh | sh
-        cargo install ripgrep
-    fi
-
 }
 
 setup_osx()
@@ -55,7 +33,7 @@ setup_osx()
     fi
 
     echo "=> Install homebrew packages"
-    packages="zsh tmux mpv ripgrep nodejs"
+    packages="fasd fzf mpv ripgrep tmux zsh"
     brew update
     brew install $packages
 }
