@@ -2,6 +2,11 @@
 
 setup_cmn()
 {
+    if ! which waybar; then
+        echo "Install waybar manually for now"
+        exit 1
+    fi
+
     if [ ! -e ~/.emacs.d ]; then
         echo "=> Clone spacemacs"
         git clone git@github.com:syl20bnr/spacemacs.git ~/.emacs.d -b develop
