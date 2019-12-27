@@ -23,9 +23,11 @@ set $menu 'rofi -modi run, drun, window  -show drun'
 output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 # Displays
+# You can get the names of your outputs by running: swaymsg -t get_outputs
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+#output DP-1 scale 1.5
+#output eDP-1 scale 2.0
 
 # Idle configuration
 #
@@ -39,16 +41,17 @@ exec swayidle -w \
     before-sleep 'swaylock -f -c 000000'
 
 ### TODO: Input configuration
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+#
+input * {
+    tap enabled
+    natural_scroll enabled
+}
+
+input * {
+    xkb_layout no
+}
 
 ### Key bindings
 
@@ -75,6 +78,9 @@ exec swayidle -w \
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+    # Lock screen
+    bindsym $mod+l exec swaylock -f -c 000000
 
 # Moving around
 
@@ -188,34 +194,35 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Keyboard layouts
-bindsym $mod+n exec setxkbmap no
-bindsym $mod+u exec setxkbmap us
+# Multimedia and special keys
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+# Zoom
+# Big screen
+bindsym $mod+f1 output DP-1 scale 1.0
+bindsym $mod+f2 output DP-1 scale 1.5
+bindsym $mod+f3 output DP-1 scale 2.0
 
-# Screen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
-bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+# Laptop screen
+bindsym $mod+Shift+f1 output eDP-1 scale 1.0
+bindsym $mod+Shift+f2 output eDP-1 scale 1.5
+bindsym $mod+Shift+f3 output eDP-1 scale 2.0
+
 
 bar {
     swaybar_command waybar
 }
 
-### TODO: power shortcuts
-### TODO: dpi
-
-### TODO: force apps to workspace
-#assign [class="Emacs"] 1
-#assign [class="Emacs26"] 1
-#assign [class="Google-chrome"] 3
-#assign [class="Slack"] 4
-
 ### Dex
-exec --no-startup-id "dex -ae i3"
+#exec --no-startup-id "dex -ae sway"
 
 ### Rofi
 bindsym $modShift+d  exec "rofi -modi run,drun -show drun"
