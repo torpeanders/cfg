@@ -235,9 +235,7 @@ bar {
 #exec --no-startup-id "dex -ae sway"
 
 ### Rofi
-#bindsym $mod+Shift+d  exec "rofi -modi run,drun -show drun"
-#bindsym $mod+l       exec "rofi -modi window,windowcd -show window"
+bindsym $mod+Shift+d exec "rofi -modi window,windowcd -show window"
 #bindsym $mod+Shift+l exec "rofi -modi window,windowcd -show windowcd"
-#bindsym $mod+c       exec "rofi -modi ssh -show ssh"
 
 include @sysconfdir@/sway/config.d/*
