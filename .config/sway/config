@@ -2,6 +2,9 @@
 
 ### Variables
 
+# Remove title bar
+default_border pixel 1
+
 # Win-Key as modifier
 set $mod Mod4
 
