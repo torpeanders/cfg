@@ -51,6 +51,7 @@ input * {
 
 input * {
     xkb_layout no
+    xkb_options caps:escape
 }
 
 ### Key bindings
