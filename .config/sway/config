@@ -20,14 +20,14 @@ set $menu 'rofi -modi run, drun, window  -show drun'
 ### TODO: Output configuration
 
 # Wallpaper
-output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 # Displays
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
-#output DP-1 scale 1.5
-#output eDP-1 scale 2.0
+output DP-1 scale 1.5
+output eDP-1 scale 2.0
 
 # Idle configuration
 #
@@ -75,12 +75,6 @@ input * {
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
-
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-
-    # Lock screen
-    bindsym $mod+l exec swaylock -f -c 000000
 
 # Moving around
 
@@ -240,9 +234,9 @@ bar {
 #exec --no-startup-id "dex -ae sway"
 
 ### Rofi
-bindsym $modShift+d  exec "rofi -modi run,drun -show drun"
-bindsym $mod+l       exec "rofi -modi window,windowcd -show window"
-bindsym $mod+Shift+l exec "rofi -modi window,windowcd -show windowcd"
-bindsym $mod+c       exec "rofi -modi ssh -show ssh"
+#bindsym $mod+Shift+d  exec "rofi -modi run,drun -show drun"
+#bindsym $mod+l       exec "rofi -modi window,windowcd -show window"
+#bindsym $mod+Shift+l exec "rofi -modi window,windowcd -show windowcd"
+#bindsym $mod+c       exec "rofi -modi ssh -show ssh"
 
 include @sysconfdir@/sway/config.d/*
