@@ -2,6 +2,9 @@
 
 ### Variables
 
+# Font
+#font pango:SourceCodePro Medium 11
+
 # Remove title bar
 default_border pixel 1
 
