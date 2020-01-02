@@ -2,11 +2,6 @@
 
 setup_cmn()
 {
-    if ! which waybar; then
-        echo "Install waybar manually for now"
-        exit 1
-    fi
-
     if [ ! -e ~/.emacs.d ]; then
         echo "=> Clone spacemacs"
         git clone git@github.com:syl20bnr/spacemacs.git ~/.emacs.d -b develop
@@ -21,11 +16,16 @@ setup_cmn()
 
 setup_nix()
 {
+    if ! which waybar; then
+        echo "Install waybar manually for now"
+        exit 1
+    fi
+
     echo "=> Install apt packages"
     editors="emacs neovim python3-neovim vim"
     windowmanagers="sway sway-backgrounds swaybg swayidle swaylock"
     devutils="cargo cmake build-essential tig"
-    miscutils="brightnessctl curl dex fasd htop mpv multitail ncdu ripgrep rofi tldr tmux tmux-themepack-jimeh zsh"
+    miscutils="brightnessctl curl dex fasd htop mpv multitail ncdu ripgrep rofi tldr tmux tmux-themepack-jimeh tree zsh"
     packages="$editors $windowmanagers $devutils $miscutils"
     sudo apt-get update -qq -y
     sudo apt-get upgrade -qq -y
@@ -45,7 +45,7 @@ setup_osx()
     fi
 
     echo "=> Install homebrew packages"
-    packages="fasd mpv ripgrep tmux zsh"
+    packages="fasd htop mpv ncdu ripgrep tmux tree"
     brew update
     brew install $packages
 }
