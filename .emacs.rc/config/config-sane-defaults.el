@@ -45,10 +45,8 @@
                  "%b"))))
 
 (when (eq system-type 'darwin)
-  (setq mac-option-modifier 'super)
-  (setq mac-right-option-modifier 'none)
-  (setq mac-command-modifier 'meta)
-  (setq mac-function-modifier 'hyper))
-
+  (setq mac-option-modifier nil
+        mac-command-modifier 'meta
+        x-select-enable-clipboard t))
 
 (provide 'config-sane-defaults)
