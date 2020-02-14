@@ -2,11 +2,6 @@
 
 setup_cmn()
 {
-    if [ ! -e ~/.emacs.d ]; then
-        echo "=> Clone spacemacs"
-        git clone git@github.com:syl20bnr/spacemacs.git ~/.emacs.d -b develop
-    fi
-
     if ! which fzf 2>&1 > /dev/null; then
         echo "=> Clone fzf"
         git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf

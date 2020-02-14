@@ -9,9 +9,8 @@
 (use-package rainbow-mode :ensure t :delight :defer t)
 (use-package sws-mode :ensure t :defer t)
 (use-package systemd :ensure t :defer t)
-
-(load-file
- (concat (file-name-as-directory site-lisp-dir) "robot-mode.el"))
+(use-package kotlin-mode :ensure t :defer t)
+(use-package dockerfile-mode :ensure t :defer t)
 
 (define-derived-mode soong-mode
   javascript-mode "Soong"
