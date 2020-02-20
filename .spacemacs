@@ -42,16 +42,21 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-enable-snippets-in-popup t)
      better-defaults
      (cmake :variables
             cmake-enable-cmake-ide-support t)
      (c-c++ :variables
+            c-c++-adopt-subprojects t
+            c-c++-backend 'lsp-ccls
+            c-c++-lsp-enable-semantic-highlight 'rainbow
             c-c++-enable-google-style t)
      docker
      emacs-lisp
      fasd
      git
+     gtags
      ivy
      java
      javascript
@@ -78,7 +83,6 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(bm
-                                      counsel-gtags
                                       dockerfile-mode
                                       doom-themes
                                       dts-mode
@@ -87,6 +91,7 @@ This function should only modify configuration layer settings."
                                       haskell-mode
                                       jade-mode
                                       js2-mode
+                                      lsp-mode
                                       key-chord
                                       kotlin-mode
                                       qml-mode
@@ -236,7 +241,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 12.0
+                               :size 13.0
                                :weight normal
                                :width normal)
 
