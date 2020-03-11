@@ -51,6 +51,8 @@ This function should only modify configuration layer settings."
             c-c++-adopt-subprojects t
             c-c++-backend 'lsp-ccls
             c-c++-lsp-enable-semantic-highlight 'rainbow
+            c-c++-lsp-enable-indentation nil
+            c-c++-lsp-enable-text-document-color nil
             c-c++-enable-google-style t)
      docker
      emacs-lisp
@@ -60,6 +62,7 @@ This function should only modify configuration layer settings."
      ivy
      java
      javascript
+     lsp
      multiple-cursors
      org
      pandoc
@@ -241,7 +244,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13.0
+                               :size 11.0
                                :weight normal
                                :width normal)
 
@@ -744,7 +747,7 @@ before packages are loaded."
   (global-set-key (kbd "C-<f2>") 'bm-next)
   (global-set-key (kbd "S-<f2>") 'bm-previous)
   (global-set-key (kbd "C-c C-f") 'fzf)
-  (global-set-key (kbd "C-c C-d") 'fzf-directory)
+  (global-set-key (kbd "C-c d") 'fzf-directory)
   (global-set-key (kbd "C-c b") 'anr/create-scratch-buffer)
   (global-set-key (kbd "C-c f") 'fasd-find-file)
   (global-set-key (kbd "C-c n") 'anr/cleanup-buffer)
