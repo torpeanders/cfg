@@ -595,6 +595,7 @@ before packages are loaded."
   (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
   (setq js-indent-level 4)
+  (setq require-final-newline t)
 
   (windmove-default-keybindings)
   (winner-mode)
