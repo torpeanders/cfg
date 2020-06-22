@@ -16,17 +16,11 @@ setup_cmn()
 
 setup_nix()
 {
-    if ! which waybar; then
-        echo "Install waybar manually for now"
-        exit 1
-    fi
-
     echo "=> Install apt packages"
     editors="emacs neovim python3-neovim vim"
-    windowmanagers="sway sway-backgrounds swaybg swayidle swaylock"
     devutils="cargo cmake build-essential tig"
-    miscutils="brightnessctl curl dex fasd htop mpv multitail ncdu ripgrep rofi tldr tmux tmux-themepack-jimeh tree zsh"
-    packages="$editors $windowmanagers $devutils $miscutils"
+    miscutils="curl dex fasd htop mpv multitail ncdu ripgrep tldr tmux tmux-themepack-jimeh tree zsh"
+    packages="$editors $devutils $miscutils"
     sudo apt-get update -qq -y
     sudo apt-get upgrade -qq -y
     sudo apt-get install -qq -y $packages
