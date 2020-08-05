@@ -543,7 +543,7 @@ before packages are loaded."
   (setq user-emacs-directory "~/.emacs.d/")
 
   ;; defuns
-  (defun anr/linux-c-mode-offset ()
+  (defun anr/c-mode-offset-linux ()
     "C mode with adjusted defaults for use with the Linux kernel."
     (interactive)
     (setq tab-width 8)
@@ -600,7 +600,6 @@ before packages are loaded."
   (put 'narrow-to-region 'disabled nil)
   (setq global-auto-revert-non-file-buffers t) ;; auto-revert dired
   (setq auto-revert-verbose nil)
-  (setq delete-by-moving-to-trash t)
   (setq line-number-mode t)
   (setq column-number-mode t)
   (setq initial-scratch-message "")
@@ -653,46 +652,14 @@ before packages are loaded."
     (setq-local js-indent-level 4))
 
   ;; Map extensions to modes
-  (add-to-list 'auto-mode-alist '("Carton$" . emacs-lisp-mode))
-  (add-to-list 'auto-mode-alist '("Cask$" . emacs-lisp-mode))
-  (add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
-  (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
-  (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
   (add-to-list 'auto-mode-alist '("\\.html\\'" . html-mode))
-  (add-to-list 'auto-mode-alist '("\\.tag$" . html-mode))
-  (add-to-list 'auto-mode-alist '("\\.vm$" . html-mode))
-  (add-to-list 'auto-mode-alist '("\\.rake$" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.watchr$" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.gemspec$" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.ru$" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("Gemfile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("capfile" . ruby-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb$" . rhtml-mode))
   (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
   (add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
-  (add-to-list 'auto-mode-alist '("\\.jshintrc$" . javascript-mode))
-  (add-to-list 'magic-mode-alist '("#!/usr/bin/env node" . js2-mode))
   (add-to-list 'auto-mode-alist '("yasnippet/snippets" . snippet-mode))
   (add-to-list 'auto-mode-alist '("\\.yasnippet$" . snippet-mode))
   (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-  (add-to-list 'auto-mode-alist '("\\.htaccess\\'"   . apache-mode))
-  (add-to-list 'auto-mode-alist '("httpd\\.conf\\'"  . apache-mode))
-  (add-to-list 'auto-mode-alist '("srm\\.conf\\'"    . apache-mode))
-  (add-to-list 'auto-mode-alist '("access\\.conf\\'" . apache-mode))
-  (add-to-list 'auto-mode-alist '("sites-\\(available\\|enabled\\)/" . apache-mode))
-  (add-to-list 'auto-mode-alist '("SConstruct$" . python-mode))
-  (add-to-list 'auto-mode-alist '("SConscript$" . python-mode))
-  (add-to-list 'auto-mode-alist '("SConscript.*$" . python-mode))
-  (add-to-list 'auto-mode-alist '("\\.bb$" . bitbake-mode))
-  (add-to-list 'auto-mode-alist '("\\.bbappend$" . bitbake-mode))
-  (add-to-list 'auto-mode-alist '("\\.inc$" . bitbake-mode))
-  (add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
-  (add-to-list 'auto-mode-alist '("\\.qbs$" . qml-mode))
   (add-to-list 'auto-mode-alist '("\\.dts$" . dts-mode))
   (add-to-list 'auto-mode-alist '("\\.dtsi$" . dts-mode))
-  (add-to-list 'auto-mode-alist '("\\.pro$" . qt-pro-mode))
-  (add-to-list 'auto-mode-alist '("\\.pri$" . qt-pro-mode))
   (add-to-list 'auto-mode-alist '("\\.bp\\'" . soong-mode))
   (add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-mode))
 
@@ -728,16 +695,6 @@ before packages are loaded."
     (setq org-directory "~/org")
     ;; Don't split line when creating new org heading with <M-return>
     (setq org-M-RET-may-split-line '((item . nil)))
-    ;; hydra - headings
-    (key-chord-define-global "OM"
-                             (defhydra hydra-org (:color red :columns 3)
-                               "Org Mode Movements"
-                               ("n" outline-next-visible-heading "next heading")
-                               ("p" outline-previous-visible-heading "prev heading")
-                               ("N" org-forward-heading-same-level "next heading at same level")
-                               ("P" org-backward-heading-same-level "prev heading at same level")
-                               ("u" outline-up-heading "up heading")
-                               ("g" org-goto "goto" :exit t)))
     )
 
   ;; some additional packages
@@ -748,11 +705,6 @@ before packages are loaded."
 
   (use-package bm :ensure t)
   (use-package fzf :ensure t)
-
-  (use-package key-chord
-    :ensure t
-    :init (key-chord-mode 1)
-    :config (setq key-chord-two-keys-delay 0.075))
 
   (use-package exec-path-from-shell
     :ensure t
@@ -778,7 +730,7 @@ before packages are loaded."
   (defun anr/maybe-linux-style ()
     (when (and buffer-file-name
                (string-match "linux\\|kernel" buffer-file-name))
-      (anr/linux-c-mode-offset)))
+      (anr/c-mode-offset-linux)))
 
   (add-hook 'dts-mode-hook 'anr/dts-mode-offset)
 
