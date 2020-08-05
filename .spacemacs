@@ -32,12 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(csv
-     html
-     yaml
-     markdown
-     windows-scripts
-     vimscript
+   '(
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
@@ -201,6 +196,11 @@ It should only modify the values of Spacemacs settings."
    ;; (default 'vim)
    dotspacemacs-editing-style 'vim
 
+   ;; If non-nil show the version string in the Spacemacs buffer. It will
+   ;; appear as (spacemacs version)@(emacs version)
+   ;; (default t)
+   dotspacemacs-startup-buffer-show-version t
+
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
    ;; banner, `random' chooses a random text banner in `core/banners'
@@ -255,7 +255,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '("JetBrains Mono"
-                               ;; "Source Code Pro"
+                               ;;"Source Code Pro"
                                :size 10.0
                                :weight normal
                                :width normal)
@@ -494,7 +494,11 @@ It should only modify the values of Spacemacs settings."
    ;; Run `spacemacs/prettify-org-buffer' when
    ;; visiting README.org files of Spacemacs.
    ;; (default nil)
-   dotspacemacs-pretty-docs nil))
+   dotspacemacs-pretty-docs nil
+
+   ;; If nil the home buffer shows the full path of agenda items
+   ;; and todos. If non nil only the file name is shown.
+   dotspacemacs-home-shorten-agenda-source nil))
 
 (defun dotspacemacs/user-env ()
   "Environment variables setup.
@@ -635,12 +639,8 @@ before packages are loaded."
   ;; mode mappings
   (use-package dockerfile-mode :ensure t :defer t)
   (use-package dts-mode :ensure t :defer t)
-  (use-package haskell-mode :ensure t :defer t)
-  (use-package jade-mode :ensure t :defer t)
   (use-package js2-mode :ensure t :defer t)
-  (use-package qml-mode :ensure t :defer t)
   (use-package rainbow-mode :ensure t :delight :defer t)
-  (use-package sws-mode :ensure t :defer t)
   (use-package systemd :ensure t :defer t)
 
   (define-derived-mode soong-mode
