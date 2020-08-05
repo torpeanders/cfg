@@ -116,12 +116,10 @@ alias sf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
 
-alias v='f -e vim'
-alias sv='sf -e vim'
-alias ec='f -e emacsclient'
-alias ecd='d -e emacsclient'
-alias sec='sf -e emacsclient'
-alias secd='sd -e emacsclient'
+alias ec="f -e 'emacsclient -t'"
+alias ecd="d -e 'emacsclient -t'"
+alias sec="sf -e 'emacsclient -t'"
+alias secd="sd -e 'emacsclient -t'"
 
 alias rm='rm -i'
 
@@ -138,7 +136,13 @@ zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
 
 DISABLE_AUTO_TITLE="true"
 
-unsetopt share_history
+## History command configuration
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt share_history          # share command history data
 
 export EDITOR=vim
 
