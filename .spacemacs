@@ -236,7 +236,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(doom-one
+                         spacemacs-dark
                          spacemacs-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
@@ -253,8 +254,8 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("Source Code Pro"
-                               ;;"JetBrains Mono"
+   dotspacemacs-default-font '("JetBrains Mono"
+                               ;; "Source Code Pro"
                                :size 10.0
                                :weight normal
                                :width normal)
@@ -549,11 +550,17 @@ before packages are loaded."
     (setq indent-tabs-mode t)
     (setq c-basic-offset 8))
 
-  (defun anr/normal-c-mode-offset ()
+  (defun anr/c-mode-offset-four ()
     "pretty normal C mode"
     (interactive)
     (setq-default indent-tabs-mode nil)
     (setq c-basic-offset 4))
+
+  (defun anr/c-mode-offset-two ()
+    "pretty normal C mode"
+    (interactive)
+    (setq-default indent-tabs-mode nil)
+    (setq c-basic-offset 2))
 
   (defun anr/dts-mode-offset ()
     "Dts* files."
@@ -736,7 +743,8 @@ before packages are loaded."
   ;; some additional packages
   (use-package dtrt-indent
     :ensure t
-    :config (spacemacs|hide-lighter dtrt-indent-mode))
+    :config (spacemacs|hide-lighter dtrt-indent-mode)
+    :hook (prog-mode . dtrt-indent-mode))
 
   (use-package bm :ensure t)
   (use-package fzf :ensure t)
@@ -767,14 +775,17 @@ before packages are loaded."
   (setq ediff-split-window-function 'split-window-horizontally)
 
   ;; => code style
-  (anr/normal-c-mode-offset)
-
   (defun anr/maybe-linux-style ()
     (when (and buffer-file-name
                (string-match "linux\\|kernel" buffer-file-name))
       (anr/linux-c-mode-offset)))
 
   (add-hook 'dts-mode-hook 'anr/dts-mode-offset)
+
+  ;; Disable smartparens. It's more annyoing than helpful. However, it cannot be
+  ;; removed completely since some spacemacs features relies on it, so simply
+  ;; remove the hook.
+  (remove-hook 'prog-mode-hook #'smartparens-mode)
 
   ;; extra keybindings
   (global-set-key (kbd "<f2>") 'bm-toggle)
@@ -807,7 +818,7 @@ This function is called at the very end of Spacemacs initialization."
    ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(custom-safe-themes
    (quote
-    ("5d09b4ad5649fea40249dd937eaaa8f8a229db1cec9a1a0ef0de3ccf63523014" "bc836bf29eab22d7e5b4c142d201bcce351806b7c1f94955ccafab8ce5b20208" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "2f1518e906a8b60fac943d02ad415f1d8b3933a5a7f75e307e6e9a26ef5bf570" "2642a1b7f53b9bb34c7f1e032d2098c852811ec2881eec2dc8cc07be004e45a0" "8cfd8dcb3291b65d5b81f0b9d592c15a06927b100f666b30c54c33d4c05ee4b6" "229c5cf9c9bd4012be621d271320036c69a14758f70e60385e87880b46d60780" "c1b06a776fad291c7646993ad87e4b3d4fb6dcba6cc7c116325d7b8c47f6e4c7" "e1ecb0536abec692b5a5e845067d75273fe36f24d01210bf0aa5842f2a7e029f" "13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277" "7f74a3b9a1f5e3d31358b48b8f8a1154aab2534fae82c9e918fb389fca776788" "585942bb24cab2d4b2f74977ac3ba6ddbd888e3776b9d2f993c5704aa8bb4739" "8f97d5ec8a774485296e366fdde6ff5589cf9e319a584b845b6f7fa788c9fa9a" "a22f40b63f9bc0a69ebc8ba4fbc6b452a4e3f84b80590ba0a92b4ff599e53ad0" "018c8326bced5102b4c1b84e1739ba3c7602019c645875459f5e6dfc6b9d9437" "a2286409934b11f2f3b7d89b1eaebb965fd63bc1e0be1c159c02e396afb893c8" "2d1fe7c9007a5b76cea4395b0fc664d0c1cfd34bb4f1860300347cdad67fb2f9" "0fe9f7a04e7a00ad99ecacc875c8ccb4153204e29d3e57e9669691e6ed8340ce" "274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" "25da85b0d62fd69b825e931e27079ceeb9fd041d14676337ea1ce1919ce4ab17" "9f9d5a42d5e637ffa3e95e5bcb4777cd66ce3dc36f85518b112f74f388e9ab59" "834cbeacb6837f3ddca4a1a7b19b1af3834f36a701e8b15b628cad3d85c970ff" "73c69e346ec1cb3d1508c2447f6518a6e582851792a8c0e57a22d6b9948071b4" "54f2d1fcc9bcadedd50398697618f7c34aceb9966a6cbaa99829eb64c0c1f3ca" "0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" "9f08dacc5b23d5eaec9cccb6b3d342bd4fdb05faf144bdcd9c4b5859ac173538" "7eded71a68f518d9e4d4580b477a3fb03bf2d0ecc1234ff361a7fdc1591b1c9d" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "14391f8e9773ce511b98b151d0655d73953068798fcb843cd67ef26e60c9f00f" "39ecc1e45ef87d610d0a8296701327010239ab70d2fc22d8e6254a30c80d497e" "a11461fe87d19070c59cfa93e6f780420040853d439a396f72e3de9cf88ba674" default)))
+    ("79278310dd6cacf2d2f491063c4ab8b129fee2a498e4c25912ddaa6c3c5b621e" "3577ee091e1d318c49889574a31175970472f6f182a9789f1a3e9e4513641d86" "2cdc13ef8c76a22daa0f46370011f54e79bae00d5736340a5ddfe656a767fddf" "be9645aaa8c11f76a10bcf36aaf83f54f4587ced1b9b679b55639c87404e2499" "fe94e2e42ccaa9714dd0f83a5aa1efeef819e22c5774115a9984293af609fce7" "5d09b4ad5649fea40249dd937eaaa8f8a229db1cec9a1a0ef0de3ccf63523014" "bc836bf29eab22d7e5b4c142d201bcce351806b7c1f94955ccafab8ce5b20208" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "2f1518e906a8b60fac943d02ad415f1d8b3933a5a7f75e307e6e9a26ef5bf570" "2642a1b7f53b9bb34c7f1e032d2098c852811ec2881eec2dc8cc07be004e45a0" "8cfd8dcb3291b65d5b81f0b9d592c15a06927b100f666b30c54c33d4c05ee4b6" "229c5cf9c9bd4012be621d271320036c69a14758f70e60385e87880b46d60780" "c1b06a776fad291c7646993ad87e4b3d4fb6dcba6cc7c116325d7b8c47f6e4c7" "e1ecb0536abec692b5a5e845067d75273fe36f24d01210bf0aa5842f2a7e029f" "13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277" "7f74a3b9a1f5e3d31358b48b8f8a1154aab2534fae82c9e918fb389fca776788" "585942bb24cab2d4b2f74977ac3ba6ddbd888e3776b9d2f993c5704aa8bb4739" "8f97d5ec8a774485296e366fdde6ff5589cf9e319a584b845b6f7fa788c9fa9a" "a22f40b63f9bc0a69ebc8ba4fbc6b452a4e3f84b80590ba0a92b4ff599e53ad0" "018c8326bced5102b4c1b84e1739ba3c7602019c645875459f5e6dfc6b9d9437" "a2286409934b11f2f3b7d89b1eaebb965fd63bc1e0be1c159c02e396afb893c8" "2d1fe7c9007a5b76cea4395b0fc664d0c1cfd34bb4f1860300347cdad67fb2f9" "0fe9f7a04e7a00ad99ecacc875c8ccb4153204e29d3e57e9669691e6ed8340ce" "274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" "25da85b0d62fd69b825e931e27079ceeb9fd041d14676337ea1ce1919ce4ab17" "9f9d5a42d5e637ffa3e95e5bcb4777cd66ce3dc36f85518b112f74f388e9ab59" "834cbeacb6837f3ddca4a1a7b19b1af3834f36a701e8b15b628cad3d85c970ff" "73c69e346ec1cb3d1508c2447f6518a6e582851792a8c0e57a22d6b9948071b4" "54f2d1fcc9bcadedd50398697618f7c34aceb9966a6cbaa99829eb64c0c1f3ca" "0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" "9f08dacc5b23d5eaec9cccb6b3d342bd4fdb05faf144bdcd9c4b5859ac173538" "7eded71a68f518d9e4d4580b477a3fb03bf2d0ecc1234ff361a7fdc1591b1c9d" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "14391f8e9773ce511b98b151d0655d73953068798fcb843cd67ef26e60c9f00f" "39ecc1e45ef87d610d0a8296701327010239ab70d2fc22d8e6254a30c80d497e" "a11461fe87d19070c59cfa93e6f780420040853d439a396f72e3de9cf88ba674" default)))
  '(evil-want-Y-yank-to-eol nil)
  '(fci-rule-color "#5B6268")
  '(hl-todo-keyword-faces
@@ -833,7 +844,7 @@ This function is called at the very end of Spacemacs initialization."
  '(objed-cursor-color "#ff6c6b")
  '(package-selected-packages
    (quote
-    (csv-mode geolocation atom-dark-theme modus-vivendi-theme lsp-ui lsp-python-ms lsp-java dap-mode lsp-treemacs bui cquery company-lsp ccls lsp-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode impatient-mode helm-css-scss helm helm-core haml-mode emmet-mode counsel-css company-web web-completion-data add-node-modules-path kotlin-mode logview elogcat yaml-mode zenburn-theme zen-and-art-theme yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum white-sand-theme which-key wgrep web-beautify vterm volatile-highlights vimrc-mode vi-tilde-fringe uuidgen use-package unfill underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme treemacs-projectile treemacs-magit treemacs-evil toxi-theme toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme systemd symon symbol-overlay sws-mode sunny-day-theme sublime-themes subatomic256-theme subatomic-theme string-inflection spaceline-all-the-icons spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smex smeargle shell-pop seti-theme reverse-theme restart-emacs request rebecca-theme rainbow-mode rainbow-delimiters railscasts-theme qml-mode pytest pyenv-mode py-isort purple-haze-theme professional-theme prettier-js powershell popwin planet-theme pippel pipenv pip-requirements phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pdf-tools pcre2el password-generator paradox pandoc-mode ox-pandoc overseer orgit organic-green-theme org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-bullets org-brain open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme nodejs-repl noctilux-theme nimbus-theme naquadah-theme nameless mwim mvn mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme meghanada maven-test-mode material-theme markdown-toc majapahit-theme magit-svn magit-gitflow madhat2r-theme macrostep lush-theme lorem-ipsum livid-mode live-py-mode link-hint light-soap-theme key-chord kaolin-themes json-navigator js2-refactor js-doc jbeans-theme jazz-theme jade-mode ivy-yasnippet ivy-xref ivy-rtags ivy-purpose ivy-hydra ir-black-theme insert-shebang inkpot-theme indent-guide importmagic hybrid-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme helm-make hc-zenburn-theme haskell-mode gruvbox-theme gruber-darker-theme groovy-mode groovy-imports grandshell-theme gradle-mode gotham-theme google-translate google-c-style golden-ratio gnuplot gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md gandalf-theme fzf fuzzy font-lock+ flycheck-rtags flycheck-pos-tip flycheck-package flycheck-bashate flx-ido flatui-theme flatland-theme fish-mode fill-column-indicator fasd farmhouse-theme fancy-battery eziam-theme eyebrowse expand-region exotica-theme exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help elisp-slime-nav editorconfig dumb-jump dts-mode dracula-theme dotenv-mode doom-themes doom-modeline dockerfile-mode docker django-theme disaster diminish devdocs define-word darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme dactyl-mode cython-mode cyberpunk-theme cpp-auto-include counsel-projectile counsel-gtags company-tern company-statistics company-shell company-rtags company-c-headers company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cmake-mode cmake-ide clues-theme clean-aindent-mode clang-format chocolate-theme cherry-blossom-theme centered-cursor-mode busybee-theme bubbleberry-theme bm blacken birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme ace-link ac-ispell)))
+    (tern csv-mode geolocation atom-dark-theme modus-vivendi-theme lsp-ui lsp-python-ms lsp-java dap-mode lsp-treemacs bui cquery company-lsp ccls lsp-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode impatient-mode helm-css-scss helm helm-core haml-mode emmet-mode counsel-css company-web web-completion-data add-node-modules-path kotlin-mode logview elogcat yaml-mode zenburn-theme zen-and-art-theme yasnippet-snippets yapfify xterm-color ws-butler writeroom-mode winum white-sand-theme which-key wgrep web-beautify vterm volatile-highlights vimrc-mode vi-tilde-fringe uuidgen use-package unfill underwater-theme ujelly-theme twilight-theme twilight-bright-theme twilight-anti-bright-theme treemacs-projectile treemacs-magit treemacs-evil toxi-theme toc-org tao-theme tangotango-theme tango-plus-theme tango-2-theme systemd symon symbol-overlay sws-mode sunny-day-theme sublime-themes subatomic256-theme subatomic-theme string-inflection spaceline-all-the-icons spacegray-theme soothe-theme solarized-theme soft-stone-theme soft-morning-theme soft-charcoal-theme smyx-theme smex smeargle shell-pop seti-theme reverse-theme restart-emacs request rebecca-theme rainbow-mode rainbow-delimiters railscasts-theme qml-mode pytest pyenv-mode py-isort purple-haze-theme professional-theme prettier-js powershell popwin planet-theme pippel pipenv pip-requirements phoenix-dark-pink-theme phoenix-dark-mono-theme persp-mode pdf-tools pcre2el password-generator paradox pandoc-mode ox-pandoc overseer orgit organic-green-theme org-projectile org-present org-pomodoro org-mime org-download org-cliplink org-bullets org-brain open-junk-file omtose-phellack-theme oldlace-theme occidental-theme obsidian-theme nodejs-repl noctilux-theme nimbus-theme naquadah-theme nameless mwim mvn mustang-theme multi-term move-text monokai-theme monochrome-theme molokai-theme moe-theme mmm-mode minimal-theme meghanada maven-test-mode material-theme markdown-toc majapahit-theme magit-svn magit-gitflow madhat2r-theme macrostep lush-theme lorem-ipsum livid-mode live-py-mode link-hint light-soap-theme key-chord kaolin-themes json-navigator js2-refactor js-doc jbeans-theme jazz-theme jade-mode ivy-yasnippet ivy-xref ivy-rtags ivy-purpose ivy-hydra ir-black-theme insert-shebang inkpot-theme indent-guide importmagic hybrid-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation heroku-theme hemisu-theme helm-make hc-zenburn-theme haskell-mode gruvbox-theme gruber-darker-theme groovy-mode groovy-imports grandshell-theme gradle-mode gotham-theme google-translate google-c-style golden-ratio gnuplot gitignore-templates gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md gandalf-theme fzf fuzzy font-lock+ flycheck-rtags flycheck-pos-tip flycheck-package flycheck-bashate flx-ido flatui-theme flatland-theme fish-mode fill-column-indicator fasd farmhouse-theme fancy-battery eziam-theme eyebrowse expand-region exotica-theme exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-textobj-line evil-surround evil-org evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-lion evil-indent-plus evil-iedit-state evil-goggles evil-exchange evil-escape evil-ediff evil-cleverparens evil-args evil-anzu eval-sexp-fu espresso-theme eshell-z eshell-prompt-extras esh-help elisp-slime-nav editorconfig dumb-jump dts-mode dracula-theme dotenv-mode doom-themes doom-modeline dockerfile-mode docker django-theme disaster diminish devdocs define-word darktooth-theme darkokai-theme darkmine-theme darkburn-theme dakrone-theme dactyl-mode cython-mode cyberpunk-theme cpp-auto-include counsel-projectile counsel-gtags company-tern company-statistics company-shell company-rtags company-c-headers company-anaconda column-enforce-mode color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cmake-mode cmake-ide clues-theme clean-aindent-mode clang-format chocolate-theme cherry-blossom-theme centered-cursor-mode busybee-theme bubbleberry-theme bm blacken birds-of-paradise-plus-theme badwolf-theme auto-yasnippet auto-highlight-symbol auto-compile apropospriate-theme anti-zenburn-theme ample-zen-theme ample-theme alect-themes aggressive-indent afternoon-theme ace-link ac-ispell)))
  '(pdf-view-midnight-colors (quote ("#b2b2b2" . "#292b2e")))
  '(rustic-ansi-faces
    ["#282c34" "#ff6c6b" "#98be65" "#ECBE7B" "#51afef" "#c678dd" "#46D9FF" "#bbc2cf"])
