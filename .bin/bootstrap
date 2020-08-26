@@ -2,15 +2,22 @@
 
 setup_cmn()
 {
-    if [ ! -e ~/.emacs.d ]; then
+    if [ ! -e $HOME/.emacs.d ]; then
         echo "=> Clone spacemacs"
-        git clone git@github.com:syl20bnr/spacemacs.git ~/.emacs.d -b develop
+        git clone git@github.com:syl20bnr/spacemacs.git $HOME/.emacs.d -b develop
     fi
 
     if ! which fzf 2>&1 > /dev/null; then
         echo "=> Clone fzf"
-        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-        ~/.fzf/install
+        git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+        $HOME/.fzf/install
+    fi
+
+    if [ ! -e $HOME/.tmux.d/extrakto ]; then
+        echo "=> Clone extrakto"
+        mkdir -p $HOME/.tmux.d
+        git clone https://github.com/laktak/extrakto $HOME/.tmux.d/extrakto
+        ln -s $HOME/.tmux.d/extrakto/extrakto.py $HOME/bin/extrakto
     fi
 }
 
