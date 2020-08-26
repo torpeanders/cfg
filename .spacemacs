@@ -46,10 +46,6 @@ This function should only modify configuration layer settings."
      (c-c++ :variables
             c-c++-adopt-subprojects t
             c-c++-backend 'lsp-ccls
-            lsp-enable-semantic-highlight 'rainbow
-            lsp-enable-indentation nil
-            lsp-enable-file-watchers nil
-            lsp-enable-text-document-color nil
             c-c++-enable-google-style t
             c-c++-enable-google-newline t)
      docker
@@ -60,7 +56,17 @@ This function should only modify configuration layer settings."
      ivy
      java
      javascript
-     lsp
+     (lsp :variables
+          ;; stop formatting while I type
+          lsp-enable-on-type-formatting nil
+          ;; disable lsp-enable-indentation, too "electric" behavior
+          ;; where also following lines are affected
+          lsp-enable-indentation nil
+          ;; watching large projects may cause Emacs slow-down
+          lsp-enable-file-watchers nil
+          ;; probably some fancy rainbow stuff?
+          lsp-enable-semantic-highlight 'rainbow
+          )
      multiple-cursors
      org
      pandoc
@@ -554,6 +560,12 @@ before packages are loaded."
     (setq indent-tabs-mode t)
     (setq c-basic-offset 8))
 
+  (defun anr/dts-mode-offset ()
+    "Dts* files."
+    (interactive)
+    (setq tab-width 8)
+    (setq indent-tabs-mode t))
+
   (defun anr/c-mode-offset-four ()
     "pretty normal C mode"
     (interactive)
@@ -565,12 +577,6 @@ before packages are loaded."
     (interactive)
     (setq-default indent-tabs-mode nil)
     (setq c-basic-offset 2))
-
-  (defun anr/dts-mode-offset ()
-    "Dts* files."
-    (interactive)
-    (setq tab-width 8)
-    (setq indent-tabs-mode t))
 
   (defun anr/create-scratch-buffer nil
     "Create a new scratch buffer to work in (could be *scratch* - *scratchX*)."
@@ -770,7 +776,7 @@ This function is called at the very end of Spacemacs initialization."
    ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
  '(custom-safe-themes
    (quote
-    ("79278310dd6cacf2d2f491063c4ab8b129fee2a498e4c25912ddaa6c3c5b621e" "3577ee091e1d318c49889574a31175970472f6f182a9789f1a3e9e4513641d86" "2cdc13ef8c76a22daa0f46370011f54e79bae00d5736340a5ddfe656a767fddf" "be9645aaa8c11f76a10bcf36aaf83f54f4587ced1b9b679b55639c87404e2499" "fe94e2e42ccaa9714dd0f83a5aa1efeef819e22c5774115a9984293af609fce7" "5d09b4ad5649fea40249dd937eaaa8f8a229db1cec9a1a0ef0de3ccf63523014" "bc836bf29eab22d7e5b4c142d201bcce351806b7c1f94955ccafab8ce5b20208" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "2f1518e906a8b60fac943d02ad415f1d8b3933a5a7f75e307e6e9a26ef5bf570" "2642a1b7f53b9bb34c7f1e032d2098c852811ec2881eec2dc8cc07be004e45a0" "8cfd8dcb3291b65d5b81f0b9d592c15a06927b100f666b30c54c33d4c05ee4b6" "229c5cf9c9bd4012be621d271320036c69a14758f70e60385e87880b46d60780" "c1b06a776fad291c7646993ad87e4b3d4fb6dcba6cc7c116325d7b8c47f6e4c7" "e1ecb0536abec692b5a5e845067d75273fe36f24d01210bf0aa5842f2a7e029f" "13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277" "7f74a3b9a1f5e3d31358b48b8f8a1154aab2534fae82c9e918fb389fca776788" "585942bb24cab2d4b2f74977ac3ba6ddbd888e3776b9d2f993c5704aa8bb4739" "8f97d5ec8a774485296e366fdde6ff5589cf9e319a584b845b6f7fa788c9fa9a" "a22f40b63f9bc0a69ebc8ba4fbc6b452a4e3f84b80590ba0a92b4ff599e53ad0" "018c8326bced5102b4c1b84e1739ba3c7602019c645875459f5e6dfc6b9d9437" "a2286409934b11f2f3b7d89b1eaebb965fd63bc1e0be1c159c02e396afb893c8" "2d1fe7c9007a5b76cea4395b0fc664d0c1cfd34bb4f1860300347cdad67fb2f9" "0fe9f7a04e7a00ad99ecacc875c8ccb4153204e29d3e57e9669691e6ed8340ce" "274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" "25da85b0d62fd69b825e931e27079ceeb9fd041d14676337ea1ce1919ce4ab17" "9f9d5a42d5e637ffa3e95e5bcb4777cd66ce3dc36f85518b112f74f388e9ab59" "834cbeacb6837f3ddca4a1a7b19b1af3834f36a701e8b15b628cad3d85c970ff" "73c69e346ec1cb3d1508c2447f6518a6e582851792a8c0e57a22d6b9948071b4" "54f2d1fcc9bcadedd50398697618f7c34aceb9966a6cbaa99829eb64c0c1f3ca" "0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" "9f08dacc5b23d5eaec9cccb6b3d342bd4fdb05faf144bdcd9c4b5859ac173538" "7eded71a68f518d9e4d4580b477a3fb03bf2d0ecc1234ff361a7fdc1591b1c9d" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "14391f8e9773ce511b98b151d0655d73953068798fcb843cd67ef26e60c9f00f" "39ecc1e45ef87d610d0a8296701327010239ab70d2fc22d8e6254a30c80d497e" "a11461fe87d19070c59cfa93e6f780420040853d439a396f72e3de9cf88ba674" default)))
+    ("5b809c3eae60da2af8a8cfba4e9e04b4d608cb49584cb5998f6e4a1c87c057c4" "79278310dd6cacf2d2f491063c4ab8b129fee2a498e4c25912ddaa6c3c5b621e" "3577ee091e1d318c49889574a31175970472f6f182a9789f1a3e9e4513641d86" "2cdc13ef8c76a22daa0f46370011f54e79bae00d5736340a5ddfe656a767fddf" "be9645aaa8c11f76a10bcf36aaf83f54f4587ced1b9b679b55639c87404e2499" "fe94e2e42ccaa9714dd0f83a5aa1efeef819e22c5774115a9984293af609fce7" "5d09b4ad5649fea40249dd937eaaa8f8a229db1cec9a1a0ef0de3ccf63523014" "bc836bf29eab22d7e5b4c142d201bcce351806b7c1f94955ccafab8ce5b20208" "76bfa9318742342233d8b0b42e824130b3a50dcc732866ff8e47366aed69de11" "2f1518e906a8b60fac943d02ad415f1d8b3933a5a7f75e307e6e9a26ef5bf570" "2642a1b7f53b9bb34c7f1e032d2098c852811ec2881eec2dc8cc07be004e45a0" "8cfd8dcb3291b65d5b81f0b9d592c15a06927b100f666b30c54c33d4c05ee4b6" "229c5cf9c9bd4012be621d271320036c69a14758f70e60385e87880b46d60780" "c1b06a776fad291c7646993ad87e4b3d4fb6dcba6cc7c116325d7b8c47f6e4c7" "e1ecb0536abec692b5a5e845067d75273fe36f24d01210bf0aa5842f2a7e029f" "13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277" "7f74a3b9a1f5e3d31358b48b8f8a1154aab2534fae82c9e918fb389fca776788" "585942bb24cab2d4b2f74977ac3ba6ddbd888e3776b9d2f993c5704aa8bb4739" "8f97d5ec8a774485296e366fdde6ff5589cf9e319a584b845b6f7fa788c9fa9a" "a22f40b63f9bc0a69ebc8ba4fbc6b452a4e3f84b80590ba0a92b4ff599e53ad0" "018c8326bced5102b4c1b84e1739ba3c7602019c645875459f5e6dfc6b9d9437" "a2286409934b11f2f3b7d89b1eaebb965fd63bc1e0be1c159c02e396afb893c8" "2d1fe7c9007a5b76cea4395b0fc664d0c1cfd34bb4f1860300347cdad67fb2f9" "0fe9f7a04e7a00ad99ecacc875c8ccb4153204e29d3e57e9669691e6ed8340ce" "274fa62b00d732d093fc3f120aca1b31a6bb484492f31081c1814a858e25c72e" "25da85b0d62fd69b825e931e27079ceeb9fd041d14676337ea1ce1919ce4ab17" "9f9d5a42d5e637ffa3e95e5bcb4777cd66ce3dc36f85518b112f74f388e9ab59" "834cbeacb6837f3ddca4a1a7b19b1af3834f36a701e8b15b628cad3d85c970ff" "73c69e346ec1cb3d1508c2447f6518a6e582851792a8c0e57a22d6b9948071b4" "54f2d1fcc9bcadedd50398697618f7c34aceb9966a6cbaa99829eb64c0c1f3ca" "0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" "9f08dacc5b23d5eaec9cccb6b3d342bd4fdb05faf144bdcd9c4b5859ac173538" "7eded71a68f518d9e4d4580b477a3fb03bf2d0ecc1234ff361a7fdc1591b1c9d" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "14391f8e9773ce511b98b151d0655d73953068798fcb843cd67ef26e60c9f00f" "39ecc1e45ef87d610d0a8296701327010239ab70d2fc22d8e6254a30c80d497e" "a11461fe87d19070c59cfa93e6f780420040853d439a396f72e3de9cf88ba674" default)))
  '(evil-want-Y-yank-to-eol nil)
  '(fci-rule-color "#5B6268")
  '(hl-todo-keyword-faces
