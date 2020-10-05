@@ -92,6 +92,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages '(bm
                                       dockerfile-mode
                                       dtrt-indent
+                                      doom-themes
                                       dts-mode
                                       exec-path-from-shell
                                       fzf
@@ -237,7 +238,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(doom-molokai
+                         spacemacs-dark
                          spacemacs-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
@@ -254,9 +256,8 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("JetBrains Mono"
-                               ;;"Source Code Pro"
-                               :size 10.0
+   dotspacemacs-default-font '("Source Code Pro"
+                               :size 11.0
                                :weight normal
                                :width normal)
 
