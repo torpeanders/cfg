@@ -20,6 +20,10 @@ if [ -d "$HOME/.bin" ] ; then
     export PATH="$HOME/.bin:$PATH"
 fi
 
+# set PATH so it includes fzf binaries if it exists
+if [ -d "$HOME/.fzf/bin" ] ; then
+    export PATH="$HOME/.fzf/bin:$PATH"
+fi
 
 # set PATH so it includes cargo binaries if they exist
 if [ -d "$HOME/.cargo/bin" ] ; then
