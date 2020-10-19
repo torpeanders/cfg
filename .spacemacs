@@ -49,6 +49,7 @@ This function should only modify configuration layer settings."
             c-c++-enable-google-style t
             c-c++-enable-google-newline t)
      docker
+     dtrt-indent
      emacs-lisp
      fasd
      git
@@ -91,7 +92,6 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(bm
                                       dockerfile-mode
-                                      dtrt-indent
                                       doom-themes
                                       dts-mode
                                       exec-path-from-shell
@@ -708,11 +708,6 @@ before packages are loaded."
     )
 
   ;; some additional packages
-  (use-package dtrt-indent
-    :ensure t
-    :config (spacemacs|hide-lighter dtrt-indent-mode)
-    :hook (prog-mode . dtrt-indent-mode))
-
   (use-package bm :ensure t)
   (use-package fzf :ensure t)
 
