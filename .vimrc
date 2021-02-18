@@ -23,7 +23,6 @@ Plug 'embear/vim-localvimrc'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 call plug#end()
 
 set breakindent
@@ -57,10 +56,7 @@ let g:buftabline_show = 2       " Always show
 let g:buftabline_numbers = 2    " Ordinal from left-to-right
 
 " color scheme
-colorscheme gruvbox
-
-" nerdtree
-map <C-o> :NERDTreeToggle<CR>
+colorscheme molokai
 
 " tmux
 let g:tmux_navigator_disable_when_zoomed = 1
