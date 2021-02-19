@@ -56,7 +56,7 @@ let g:buftabline_show = 2       " Always show
 let g:buftabline_numbers = 2    " Ordinal from left-to-right
 
 " color scheme
-colorscheme molokai
+colorscheme twilight256
 
 " tmux
 let g:tmux_navigator_disable_when_zoomed = 1
@@ -86,7 +86,6 @@ nnoremap <silent> <C-Down> <c-w>j
 
 " fzf
 nnoremap <C-t> :Files<Cr>
-nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 
 " rg
 command! -bang -nargs=* Rg
