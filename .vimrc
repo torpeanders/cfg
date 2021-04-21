@@ -85,7 +85,7 @@ nnoremap <silent> <C-Up> <c-w>k
 nnoremap <silent> <C-Down> <c-w>j
 
 
-" rg
+""" rg
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
@@ -100,11 +100,28 @@ command! -bang -nargs=* Find
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
-" fzf
+""" fzf
 nnoremap <silent> <C-f> :Files<Cr>
 nnoremap <silent> <Leader>f :Rg<Cr>
 nnoremap <silent> <Leader>g :Find<Cr>
 nnoremap <silent> <Leader>c :Commits<Cr>
 nnoremap <silent> <Leader>b :Buffers<CR>
 
+""" easymotion
+
+" Move to line
+map <Leader><Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader><Leader>L <Plug>(easymotion-overwin-line)
+
+" Gif config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+
+""" misc
 autocmd VimResized * wincmd =
