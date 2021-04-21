@@ -92,10 +92,17 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
   \   <bang>0)
 
+command! -bang -nargs=* Find
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cword>')), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 " fzf
 nnoremap <silent> <C-f> :Files<Cr>
 nnoremap <silent> <Leader>f :Rg<Cr>
+nnoremap <silent> <Leader>g :Find<Cr>
 nnoremap <silent> <Leader>c :Commits<Cr>
 nnoremap <silent> <Leader>b :Buffers<CR>
 
