@@ -12,17 +12,17 @@ endif
 
 " vim-plug init code
 call plug#begin('~/.vim/plugged')
-Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-fugitive', { 'on': 'Gstatus' }
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'easymotion/vim-easymotion'
+Plug 'embear/vim-localvimrc'
+Plug 'itchyny/lightline.vim'
 Plug '~/.fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'embear/vim-localvimrc'
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
-Plug 'easymotion/vim-easymotion'
+Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive', { 'on': 'Gstatus' }
 call plug#end()
 
 set breakindent
