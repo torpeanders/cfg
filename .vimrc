@@ -22,6 +22,7 @@ Plug 'embear/vim-localvimrc'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 set breakindent
