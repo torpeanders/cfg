@@ -14,7 +14,6 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'ap/vim-buftabline'
-Plug 'jeetsukumaran/vim-buffergator'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-fugitive', { 'on': 'Gstatus' }
 Plug '~/.fzf'
@@ -84,8 +83,6 @@ nnoremap <silent> <C-Left> <c-w>h
 nnoremap <silent> <C-Up> <c-w>k
 nnoremap <silent> <C-Down> <c-w>j
 
-" fzf
-nnoremap <C-t> :Files<Cr>
 
 " rg
 command! -bang -nargs=* Rg
@@ -95,10 +92,11 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
   \   <bang>0)
 
-nnoremap <C-f> :Rg<Cr>
-nnoremap <C-g> :Rg<Cr>
 
-" Stuff
-nnoremap <silent> <Leader><Enter> :Buffers<CR>
+" fzf
+nnoremap <silent> <C-f> :Files<Cr>
+nnoremap <silent> <Leader>f :Rg<Cr>
+nnoremap <silent> <Leader>c :Commits<Cr>
+nnoremap <silent> <Leader>b :Buffers<CR>
 
 autocmd VimResized * wincmd =
