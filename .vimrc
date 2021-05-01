@@ -125,3 +125,13 @@ map  N <Plug>(easymotion-prev)
 
 """ misc
 autocmd VimResized * wincmd =
+
+""" show trailing whitespaces
+let &colorcolumn="80"
+set list
+set listchars=tab:▸\ ,trail:¬,nbsp:.,precedes:«,extends:»
+augroup ListChars2
+    au!
+    autocmd filetype go set listchars+=tab:\ \ 
+    autocmd ColorScheme * hi! link SpecialKey Normal
+augroup END
