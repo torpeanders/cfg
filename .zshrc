@@ -159,3 +159,5 @@ export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
 # Any local stuff
 [[ ! -f ~/.zshrc-local.zsh ]] || source ~/.zshrc-local.zsh
+
+[ -f ~/.local_shell_stuff ] && source ~/.local_shell_stuff
