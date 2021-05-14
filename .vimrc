@@ -22,7 +22,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-fugitive', { 'on': 'Gstatus' }
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 set breakindent
