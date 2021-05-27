@@ -584,6 +584,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
     (add-hook 'c-mode-common-hook 'anr/maybe-linux-style t))
 
   (add-hook 'nxml-mode-hook (lambda () (rng-validate-mode 0)) 'append)
+  (add-hook 'nxml-mode-hook 'hs-minor-mode)
 )
 
 
