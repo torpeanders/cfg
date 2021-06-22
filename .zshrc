@@ -60,6 +60,7 @@ antigen bundle command-not-found
 antigen bundle common-aliases
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle mafredri/zsh-async
+antigen bundle jeffreytse/zsh-vi-mode
 antigen theme romkatv/powerlevel10k
 
 # OS specific plugins
@@ -153,6 +154,8 @@ export EDITOR=vim
 
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
+# Append a command directly
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
