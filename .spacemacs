@@ -107,6 +107,7 @@ This function should only modify configuration layer settings."
                                       lsp-mode
                                       key-chord
                                       kotlin-mode
+                                      org-plus-contrib
                                       rainbow-mode
                                       systemd)
 
@@ -265,8 +266,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(doom-monokai-pro
-                         spacemacs-dark
+   dotspacemacs-themes '(spacemacs-dark
                          spacemacs-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
