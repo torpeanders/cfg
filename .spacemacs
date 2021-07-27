@@ -285,12 +285,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   ;; dotspacemacs-default-font '("Source Code Pro"
-   ;;                             :size 10.0
-   ;;                             :weight normal
-   ;;                             :width normal)
-
-   dotspacemacs-default-font '("JetBrains Mono"
+   dotspacemacs-default-font '("Source Code Pro"
                                :size 10.0
                                :weight normal
                                :width normal)
@@ -611,7 +606,6 @@ before packages are loaded."
   ;; whoami
   (setq user-full-name "Anders Rønningen"
         user-mail-address "anders@ronningen.priv.no")
-  (setq user-emacs-directory "~/spacemacs/")
 
   ;; defuns
   (defun anr/c-mode-offset-linux ()
