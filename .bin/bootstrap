@@ -35,7 +35,7 @@ setup_cmn()
 setup_nix()
 {
     echo "=> Install apt packages"
-    editors="emacs neovim python3-neovim vim"
+    editors="neovim python3-neovim vim"
     devutils="cargo cmake build-essential tig"
     miscutils="curl dex fasd htop mpv multitail ncdu ripgrep tldr tmux tmuxinator tmux-themepack-jimeh tree zsh"
     packages="$editors $devutils $miscutils"
