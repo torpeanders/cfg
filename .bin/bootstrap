@@ -18,6 +18,12 @@ setup_cmn()
         git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
     fi
 
+    if ! which fzf 2>&1 > /dev/null; then
+        echo "=> Clone fzf"
+        git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+        $HOME/.fzf/install
+    fi
+
     if [ ! -e $HOME/.tmux.d/extrakto ]; then
         echo "=> Clone extrakto"
         mkdir -p $HOME/.tmux.d
@@ -31,7 +37,7 @@ setup_nix()
     echo "=> Install apt packages"
     editors="emacs neovim python3-neovim vim"
     devutils="cargo cmake build-essential tig"
-    miscutils="curl dex fasd fzf htop mpv multitail ncdu ripgrep tldr tmux tmuxinator tmux-themepack-jimeh tree zsh"
+    miscutils="curl dex fasd htop mpv multitail ncdu ripgrep tldr tmux tmuxinator tmux-themepack-jimeh tree zsh"
     packages="$editors $devutils $miscutils"
     sudo apt-get update -qq -y
     sudo apt-get upgrade -qq -y
@@ -51,7 +57,7 @@ setup_osx()
     fi
 
     echo "=> Install homebrew packages"
-    packages="fasd fzf htop mpv ncdu ripgrep tmux tree"
+    packages="fasd htop mpv ncdu ripgrep tmux tree"
     brew update
     brew install $packages
 }
