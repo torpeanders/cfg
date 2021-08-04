@@ -78,3 +78,19 @@
 (global-set-key (kbd "C-c f")   'fasd-find-file)
 (global-set-key (kbd "C-c C-f") 'fzf)
 (global-set-key (kbd "C-c d")   'fzf-directory)
+
+;; utf-8 ftw
+(prefer-coding-system       'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(setq default-buffer-file-coding-system 'utf-8)
+
+;; use rg to search in projects
+(setq +ivy-project-search-engines '(rg))
+
+;; setup mac modifiers
+(when (eq system-type 'darwin)
+  (setq mac-option-modifier nil
+        mac-command-modifier 'meta
+        x-select-enable-clipboard t))
