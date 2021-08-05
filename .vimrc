@@ -84,25 +84,10 @@ nnoremap <silent> <C-Left> <c-w>h
 nnoremap <silent> <C-Up> <c-w>k
 nnoremap <silent> <C-Down> <c-w>j
 
-
-""" rg
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --hidden --ignore-case --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
-  \   <bang>0)
-
-command! -bang -nargs=* Find
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(expand('<cword>')), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-
 """ fzf
 nnoremap <silent> <C-f> :Files<Cr>
 nnoremap <silent> <Leader>f :Rg<Cr>
+nnoremap <silent> <Leader>s :BLines<Cr>
 nnoremap <silent> <Leader>g :Find<Cr>
 nnoremap <silent> <Leader>c :Commits<Cr>
 nnoremap <silent> <Leader>b :Buffers<CR>
