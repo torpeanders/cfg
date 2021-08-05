@@ -50,12 +50,10 @@ This function should only modify configuration layer settings."
             c-c++-backend 'lsp-clangd
             c-c++-enable-google-style t
             c-c++-enable-google-newline t)
-     docker
      dtrt-indent
      emacs-lisp
      fasd
      git
-     gtags
      ivy
      java
      javascript
@@ -266,7 +264,8 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(doom-one
+                         spacemacs-dark
                          spacemacs-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
@@ -649,44 +648,45 @@ before packages are loaded."
       ))
 
   ;; sane defaults
-  (menu-bar-mode -1)
-  (tool-bar-mode -1)
-  (scroll-bar-mode -1)
-  (show-paren-mode 1)
-  (global-hl-line-mode 1)
-  (blink-cursor-mode 0)
-  (global-subword-mode 1) ;; navigate sillycased words
-  (global-auto-revert-mode 1) ;; auto-revert buffers on background changes
-  (delete-selection-mode 1)
-  (set-default 'indent-tabs-mode nil)
-  (set-default 'indicate-empty-lines t)
-  (put 'downcase-region 'disabled nil)
-  (put 'upcase-region 'disabled nil)
-  (put 'narrow-to-region 'disabled nil)
-  (setq global-auto-revert-non-file-buffers t) ;; auto-revert dired
-  (setq auto-revert-verbose nil)
-  (setq line-number-mode t)
-  (setq column-number-mode t)
-  (setq initial-scratch-message "")
-  (setq inhibit-startup-message t)
-  (defalias 'yes-or-no-p 'y-or-n-p)
-  (setq-default truncate-lines t)
-  (set-default 'sentence-end-double-space nil)
-  (setq compilation-scroll-output t)
-  (setq locale-coding-system 'utf-8)
-  (set-terminal-coding-system 'utf-8)
-  (set-keyboard-coding-system 'utf-8)
-  (set-selection-coding-system 'utf-8)
-  (prefer-coding-system 'utf-8)
-  (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
-  (add-hook 'before-save-hook 'delete-trailing-whitespace)
-  (setq js-indent-level 4)
+  ;; (menu-bar-mode -1)
+  ;; (tool-bar-mode -1)
+  ;; (scroll-bar-mode -1)
+  ;; (show-paren-mode 1)
+  ;; (global-hl-line-mode 1)
+  ;; (blink-cursor-mode 0)
+  ;; (global-subword-mode 1) ;; navigate sillycased words
+  ;; (global-auto-revert-mode 1) ;; auto-revert buffers on background changes
+  ;; (delete-selection-mode 1)
+  ;; (set-default 'indent-tabs-mode nil)
+  ;; (set-default 'indicate-empty-lines t)
+  ;; (put 'downcase-region 'disabled nil)
+  ;; (put 'upcase-region 'disabled nil)
+  ;; (put 'narrow-to-region 'disabled nil)
+  ;; (setq global-auto-revert-non-file-buffers t) ;; auto-revert dired
+  ;; (setq auto-revert-verbose nil)
+  ;; (setq line-number-mode t)
+  ;; (setq column-number-mode t)
+  ;; (setq initial-scratch-message "")
+  ;; (setq inhibit-startup-message t)
+  ;; (defalias 'yes-or-no-p 'y-or-n-p)
+  ;; (setq-default truncate-lines t)
+  ;; (set-default 'sentence-end-double-space nil)
+  ;; (setq compilation-scroll-output t)
+  ;; (setq locale-coding-system 'utf-8)
+  ;; (set-terminal-coding-system 'utf-8)
+  ;; (set-keyboard-coding-system 'utf-8)
+  ;; (set-selection-coding-system 'utf-8)
+  ;; (prefer-coding-system 'utf-8)
+  ;; (setq js-indent-level 4)
+  ;; (auto-compression-mode t)
+
   (setq require-final-newline t)
   (setq mode-require-final-newline t)
 
+  (setq backup-directory-alist '(("." . "~/.spacemacs.d/backups")))
+
   (windmove-default-keybindings)
   (winner-mode)
-  (auto-compression-mode t)
 
   (setq frame-title-format
         '((:eval (if (buffer-file-name)
@@ -732,19 +732,6 @@ before packages are loaded."
     :config
     (setq org-src-fontify-natively t)
     (setq
-     org-outline-path-complete-in-steps nil
-     org-goto-interface 'outline-path-completion
-
-     org-src-fontify-natively t
-                                        ; clock
-     org-clock-into-drawer  "CLOCK"
-     org-clock-out-when-done t
-     org-clock-in-switch-to-state nil
-                                        ; log
-     org-log-note-clock-out t
-     org-duration-format (quote h:mm)
-                                        ; time
-     org-time-clocksum-use-fractional t
      org-todo-keywords
      '((sequence "TODO(t)" "INPROGRESS(i@)" "|" "DONE(f@)" "DELEGATED(d@)" "CANCELLED(c@)"))
      org-todo-keyword-faces
@@ -755,8 +742,6 @@ before packages are loaded."
        ))
     ;; Location of (most) my org files
     (setq org-directory "~/org")
-    ;; Don't split line when creating new org heading with <M-return>
-    (setq org-M-RET-may-split-line '((item . nil)))
     )
 
   ;; some additional packages
@@ -804,7 +789,6 @@ before packages are loaded."
   (global-set-key (kbd "C-c d") 'fzf-directory)
   (global-set-key (kbd "C-c b") 'anr/create-scratch-buffer)
   (global-set-key (kbd "C-c f") 'fasd-find-file)
-  (global-set-key (kbd "C-c n") 'anr/cleanup-buffer)
 
   ;; machine specific setup
   (cond ((file-exists-p "~/.emacs-this-pc.el")

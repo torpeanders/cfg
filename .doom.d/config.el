@@ -70,15 +70,6 @@
 
 (windmove-default-keybindings)
 
-;; extra keybindings
-(global-set-key (kbd "C-c b")   'anr/create-scratch-buffer)
-(global-set-key (kbd "<f2>")    'bm-toggle)
-(global-set-key (kbd "C-<f2>")  'bm-next)
-(global-set-key (kbd "S-<f2>")  'bm-previous)
-(global-set-key (kbd "C-c f")   'fasd-find-file)
-(global-set-key (kbd "C-c C-f") 'fzf)
-(global-set-key (kbd "C-c d")   'fzf-directory)
-
 ;; utf-8 ftw
 (prefer-coding-system       'utf-8)
 (set-default-coding-systems 'utf-8)
@@ -97,3 +88,16 @@
 
 ;; yes, I am sure
 (setq confirm-kill-emacs nil)
+
+;; looks are important
+(setq doom-font (font-spec :family "Source Code Pro" :size 13))
+
+;; extra keybindings
+(global-set-key (kbd "C-c b")   'anr/create-scratch-buffer)
+(global-set-key (kbd "<f2>")    'bm-toggle)
+(global-set-key (kbd "C-<f2>")  'bm-next)
+(global-set-key (kbd "S-<f2>")  'bm-previous)
+(global-set-key (kbd "C-c f")   'fasd-find-file)
+(global-set-key (kbd "C-c C-f") 'fzf)
+(global-set-key (kbd "C-c d")   'fzf-directory)
+
