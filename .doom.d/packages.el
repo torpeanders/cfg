@@ -50,5 +50,6 @@
 ;(unpin! t)
 
 (package! bm)
+(package! dts-mode)
 (package! fasd)
 (package! fzf)

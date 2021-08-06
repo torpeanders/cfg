@@ -92,6 +92,10 @@
 ;; looks are important
 (setq doom-font (font-spec :family "Source Code Pro" :size 13))
 
+;; mode-mappings
+(add-to-list 'auto-mode-alist '("\\.dts$" . dts-mode))
+(add-to-list 'auto-mode-alist '("\\.dtsi$" . dts-mode))
+
 ;; extra keybindings
 (global-set-key (kbd "C-c b")   'anr/create-scratch-buffer)
 (global-set-key (kbd "<f2>")    'bm-toggle)
