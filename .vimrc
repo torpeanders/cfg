@@ -88,7 +88,7 @@ nnoremap <silent> <C-Down> <c-w>j
 nnoremap <silent> <C-f> :Files<Cr>
 nnoremap <silent> <Leader>f :Rg<Cr>
 nnoremap <silent> <Leader>s :BLines<Cr>
-nnoremap <silent> <Leader>g :Find<Cr>
+"nnoremap <silent> <Leader>g :Find<Cr>
 nnoremap <silent> <Leader>c :Commits<Cr>
 nnoremap <silent> <Leader>b :Buffers<CR>
 
