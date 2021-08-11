@@ -92,9 +92,26 @@
 ;; looks are important
 (setq doom-font (font-spec :family "Source Code Pro" :size 13))
 
+;; some magit customization
+(setq magit-display-buffer-function
+      #'magit-display-buffer-fullframe-status-v1)
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+(setq ediff-split-window-function 'split-window-horizontally)
+
+;;
+;; make a mode for soong
+(define-derived-mode soong-mode
+  javascript-mode "Soong"
+  "Major mode for soong files."
+  :syntax-table nil
+  :abbrev-table nil
+  (setq-local indent-tabs-mode nil)
+  (setq-local js-indent-level 4))
+
 ;; mode-mappings
 (add-to-list 'auto-mode-alist '("\\.dts$" . dts-mode))
 (add-to-list 'auto-mode-alist '("\\.dtsi$" . dts-mode))
+(add-to-list 'auto-mode-alist '("\\.bp\\'" . soong-mode))
 
 ;; extra keybindings
 (global-set-key (kbd "C-c b")   'anr/create-scratch-buffer)
