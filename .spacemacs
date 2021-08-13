@@ -620,18 +620,6 @@ before packages are loaded."
     (setq tab-width 8)
     (setq indent-tabs-mode t))
 
-  (defun anr/c-mode-offset-four ()
-    "pretty normal C mode"
-    (interactive)
-    (setq-default indent-tabs-mode nil)
-    (setq c-basic-offset 4))
-
-  (defun anr/c-mode-offset-two ()
-    "pretty normal C mode"
-    (interactive)
-    (setq-default indent-tabs-mode nil)
-    (setq c-basic-offset 2))
-
   (defun anr/create-scratch-buffer nil
     "Create a new scratch buffer to work in (could be *scratch* - *scratchX*)."
     (interactive)
@@ -647,38 +635,11 @@ before packages are loaded."
       (emacs-lisp-mode)
       ))
 
-  ;; sane defaults
-  ;; (menu-bar-mode -1)
-  ;; (tool-bar-mode -1)
-  ;; (scroll-bar-mode -1)
-  ;; (show-paren-mode 1)
-  ;; (global-hl-line-mode 1)
-  ;; (blink-cursor-mode 0)
-  ;; (global-subword-mode 1) ;; navigate sillycased words
-  ;; (global-auto-revert-mode 1) ;; auto-revert buffers on background changes
-  ;; (delete-selection-mode 1)
-  ;; (set-default 'indent-tabs-mode nil)
-  ;; (set-default 'indicate-empty-lines t)
-  ;; (put 'downcase-region 'disabled nil)
-  ;; (put 'upcase-region 'disabled nil)
-  ;; (put 'narrow-to-region 'disabled nil)
-  ;; (setq global-auto-revert-non-file-buffers t) ;; auto-revert dired
-  ;; (setq auto-revert-verbose nil)
-  ;; (setq line-number-mode t)
-  ;; (setq column-number-mode t)
-  ;; (setq initial-scratch-message "")
-  ;; (setq inhibit-startup-message t)
-  ;; (defalias 'yes-or-no-p 'y-or-n-p)
-  ;; (setq-default truncate-lines t)
-  ;; (set-default 'sentence-end-double-space nil)
-  ;; (setq compilation-scroll-output t)
-  ;; (setq locale-coding-system 'utf-8)
-  ;; (set-terminal-coding-system 'utf-8)
-  ;; (set-keyboard-coding-system 'utf-8)
-  ;; (set-selection-coding-system 'utf-8)
-  ;; (prefer-coding-system 'utf-8)
-  ;; (setq js-indent-level 4)
-  ;; (auto-compression-mode t)
+  (setq locale-coding-system 'utf-8)
+  (set-terminal-coding-system 'utf-8)
+  (set-keyboard-coding-system 'utf-8)
+  (set-selection-coding-system 'utf-8)
+  (prefer-coding-system 'utf-8)
 
   (setq require-final-newline t)
   (setq mode-require-final-newline t)
