@@ -98,7 +98,21 @@
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 (setq ediff-split-window-function 'split-window-horizontally)
 
-;;
+;; => code style
+(defun anr/c-mode-offset-linux ()
+  "C mode with adjusted defaults for use with the Linux kernel."
+  (interactive)
+  (setq tab-width 8)
+  (setq indent-tabs-mode t)
+  (setq c-basic-offset 8))
+
+(defun anr/maybe-linux-style ()
+  (when (and buffer-file-name
+             (string-match "linux\\|kernel" buffer-file-name))
+    (anr/c-mode-offset-linux)))
+
+(add-hook! c-mode 'anr/maybe-linux-style t)
+
 ;; make a mode for soong
 (define-derived-mode soong-mode
   javascript-mode "Soong"
