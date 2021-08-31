@@ -111,7 +111,14 @@
              (string-match "linux\\|kernel" buffer-file-name))
     (anr/c-mode-offset-linux)))
 
+(defun anr/dts-mode-offset ()
+  "Dts* files."
+  (interactive)
+  (setq tab-width 8)
+  (setq indent-tabs-mode t))
+
 (add-hook! c-mode 'anr/maybe-linux-style t)
+(add-hook! dts-mode 'anr/dts-mode-offset t)
 
 ;; make a mode for soong
 (define-derived-mode soong-mode
