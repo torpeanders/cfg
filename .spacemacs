@@ -93,8 +93,6 @@ This function should only modify configuration layer settings."
                                       exec-path-from-shell
                                       fzf
                                       js2-mode
-                                      lsp-mode
-                                      key-chord
                                       kotlin-mode
                                       org-plus-contrib
                                       rainbow-mode
