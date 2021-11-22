@@ -32,8 +32,7 @@ This function should only modify configuration layer settings."
 
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
-   '(vimscript
-     windows-scripts
+   '(windows-scripts
      yaml
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
@@ -46,8 +45,7 @@ This function should only modify configuration layer settings."
      (cmake :variables
             cmake-enable-cmake-ide-support t)
      (c-c++ :variables
-            c-c++-adopt-subprojects t
-            c-c++-backend 'lsp-clangd
+            c-c++-backend 'lsp-ccls
             c-c++-enable-google-style t
             c-c++-enable-google-newline t)
      dtrt-indent
@@ -65,15 +63,8 @@ This function should only modify configuration layer settings."
           lsp-enable-indentation nil
           ;; watching large projects may cause Emacs slow-down
           lsp-enable-file-watchers nil
-          ;; probably some fancy rainbow stuff?
-          lsp-enable-semantic-highlight 'rainbow
-          ;; if the server exits, just restart it without prompting
-          lsp-restart 'auto-restart
-          ;; no tips needed
-          lsp-ui-doc-enable nil
-          lsp-ui-sideline-enable nil
           )
-     multiple-cursors
+     ;; multiple-cursors
      org
      pandoc
      pdf
