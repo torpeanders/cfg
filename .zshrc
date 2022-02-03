@@ -132,6 +132,10 @@ alias fuck='sudo $(fc -ln -1)'
 alias vim="nvim"
 alias vi="nvim"
 
+alias ew="emacs --with-profile doom -nw"
+
+alias asu="adb shell su root"
+
 reboot() { echo  "I'm pretty sure you screwed up..."; }
 
 # Misc zsh setup
