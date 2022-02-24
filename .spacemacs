@@ -96,7 +96,6 @@ This function should only modify configuration layer settings."
                                       fzf
                                       js2-mode
                                       kotlin-mode
-                                      org-plus-contrib
                                       rainbow-mode
                                       systemd)
 
@@ -123,9 +122,13 @@ It should only modify the values of Spacemacs settings."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
-   ;; If non-nil then enable support for the portable dumper. You'll need
-   ;; to compile Emacs 27 from source following the instructions in file
+   ;; If non-nil then enable support for the portable dumper. You'll need to
+   ;; compile Emacs 27 from source following the instructions in file
    ;; EXPERIMENTAL.org at to root of the git repository.
+   ;;
+   ;; WARNING: pdumper does not work with Native Compilation, so it's disabled
+   ;; regardless of the following setting when native compilation is in effect.
+   ;;
    ;; (default nil)
    dotspacemacs-enable-emacs-pdumper nil
 
@@ -231,6 +234,11 @@ It should only modify the values of Spacemacs settings."
 
    ;; The minimum delay in seconds between number key presses. (default 0.4)
    dotspacemacs-startup-buffer-multi-digit-delay 0.4
+
+   ;; If non-nil, show file icons for entries and headings on Spacemacs home buffer.
+   ;; This has no effect in terminal or if "all-the-icons" package or the font
+   ;; is not installed. (default nil)
+   dotspacemacs-startup-buffer-show-icons nil
 
    ;; Default major mode for a new empty buffer. Possible values are mode
    ;; names such as `text-mode'; and `nil' to use Fundamental mode.
@@ -420,8 +428,8 @@ It should only modify the values of Spacemacs settings."
    ;; If set to `t', `relative' or `visual' then line numbers are enabled in all
    ;; `prog-mode' and `text-mode' derivatives. If set to `relative', line
    ;; numbers are relative. If set to `visual', line numbers are also relative,
-   ;; but lines are only visual lines are counted. For example, folded lines
-   ;; will not be counted and wrapped lines are counted as multiple lines.
+   ;; but only visual lines are counted. For example, folded lines will not be
+   ;; counted and wrapped lines are counted as multiple lines.
    ;; This variable can also be set to a property list for finer control:
    ;; '(:relative nil
    ;;   :visual nil
@@ -511,18 +519,18 @@ It should only modify the values of Spacemacs settings."
    ;; Delete whitespace while saving buffer. Possible values are `all'
    ;; to aggressively delete empty line and long sequences of whitespace,
    ;; `trailing' to delete only the whitespace at end of lines, `changed' to
-   ;; delete only whitespace for changed lines or `nil' to disable cleanup
+   ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup 'trailing
 
-   ;; If non nil activate `clean-aindent-mode' which tries to correct
-   ;; virtual indentation of simple modes. This can interfer with mode specific
+   ;; If non-nil activate `clean-aindent-mode' which tries to correct
+   ;; virtual indentation of simple modes. This can interfere with mode specific
    ;; indent handling like has been reported for `go-mode'.
    ;; If it does deactivate it here.
    ;; (default t)
    dotspacemacs-use-clean-aindent-mode t
 
-   ;; Accept SPC as y for prompts if non nil. (default nil)
+   ;; Accept SPC as y for prompts if non-nil. (default nil)
    dotspacemacs-use-SPC-as-y nil
 
    ;; If non-nil shift your number row to match the entered keyboard layout
@@ -542,7 +550,7 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-pretty-docs nil
 
    ;; If nil the home buffer shows the full path of agenda items
-   ;; and todos. If non nil only the file name is shown.
+   ;; and todos. If non-nil only the file name is shown.
    dotspacemacs-home-shorten-agenda-source nil
 
    ;; If non-nil then byte-compile some of Spacemacs files.
@@ -554,7 +562,8 @@ This function defines the environment variables for your Emacs session. By
 default it calls `spacemacs/load-spacemacs-env' which loads the environment
 variables declared in `~/.spacemacs.env' or `~/.spacemacs.d/.spacemacs.env'.
 See the header of this file for more information."
-  (spacemacs/load-spacemacs-env))
+  (spacemacs/load-spacemacs-env)
+)
 
 (defun dotspacemacs/user-init ()
   "Initialization for user code:
@@ -583,7 +592,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   "Library to load while dumping.
 This function is called only while dumping Spacemacs configuration. You can
 `require' or `load' the libraries of your choice that will be included in the
-dump.")
+dump."
+)
 
 
 (defun dotspacemacs/user-config ()
