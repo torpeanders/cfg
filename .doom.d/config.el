@@ -144,3 +144,9 @@
 (global-set-key (kbd "C-c d")       'fzf-directory)
 (global-set-key (kbd "C-c <left>")  'winner-undo)
 (global-set-key (kbd "C-c <right>") 'winner-redo)
+
+;; set org column
+(after! org
+  (setq org-tags-column -80)
+   ;; ... other org configuration here
+)
