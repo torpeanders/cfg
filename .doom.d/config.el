@@ -150,3 +150,14 @@
   (setq org-tags-column -80)
    ;; ... other org configuration here
 )
+
+;; diff init.el to look for new and cool stuff
+(defun doom/ediff-init-and-example ()
+  "ediff the current `init.el' with the example in doom-emacs-dir"
+  (interactive)
+  (ediff-files (concat doom-private-dir "init.el")
+               (concat doom-emacs-dir "init.example.el")))
+
+(define-key! help-map
+  "di"   #'doom/ediff-init-and-example
+  )
