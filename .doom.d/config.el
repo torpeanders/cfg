@@ -161,3 +161,10 @@
 (define-key! help-map
   "di"   #'doom/ediff-init-and-example
   )
+
+;; show workspace in modeline
+(after! doom-modeline
+  (setq doom-modeline-persp-name t))
+
+;; no new workspace on project switch
+(setq +workspaces-on-switch-project-behavior nil)
