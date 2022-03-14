@@ -148,6 +148,15 @@
 ;; set org column
 (after! org
   (setq org-tags-column -80)
+  (setq
+   org-todo-keywords
+   '((sequence "TODO(t)" "INPROGRESS(i@)" "|" "DONE(f@)" "DELEGATED(d@)" "CANCELLED(c@)"))
+   org-todo-keyword-faces
+   '(("TODO" . org-warning)
+     ("DONE" . (:foreground "green" :weight bold))
+     ("DELEGATED" . (:foreground "yellow" :weight bold))
+     ("CANCELLED" . (:foreground "red" :weight bold))
+     ))
    ;; ... other org configuration here
 )
 
