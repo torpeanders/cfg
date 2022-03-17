@@ -145,7 +145,7 @@
 (global-set-key (kbd "C-c <left>")  'winner-undo)
 (global-set-key (kbd "C-c <right>") 'winner-redo)
 
-;; set org column
+;; org setup
 (after! org
   (setq org-tags-column -80)
   (setq
@@ -159,6 +159,15 @@
      ))
    ;; ... other org configuration here
 )
+
+;; magit setup
+(after! magit
+  (set-default 'magit-stage-all-confirm nil)
+  (set-default 'magit-unstage-all-confirm nil)
+  (setq magit-ediff-dwim-show-on-hunks t)
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+  (setq ediff-split-window-function 'split-window-horizontally)
+  )
 
 ;; diff init.el to look for new and cool stuff
 (defun doom/ediff-init-and-example ()
@@ -177,3 +186,6 @@
 
 ;; no new workspace on project switch
 (setq +workspaces-on-switch-project-behavior nil)
+
+;;; set the fonts
+;;(setq doom-font (font-spec :family "Source Code Pro" :size 11))
