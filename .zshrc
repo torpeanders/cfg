@@ -60,6 +60,7 @@ antigen bundle command-not-found
 antigen bundle common-aliases
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle mafredri/zsh-async
+# antigen bundle jeffreytse/zsh-vi-mode
 antigen theme romkatv/powerlevel10k
 
 # OS specific plugins
