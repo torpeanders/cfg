@@ -189,3 +189,6 @@
 
 ;;; set the fonts
 ;;(setq doom-font (font-spec :family "Source Code Pro" :size 11))
+
+;; look and feel
+(setq doom-theme 'doom-dark+)
