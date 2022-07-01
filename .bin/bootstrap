@@ -13,11 +13,6 @@ setup_cmn()
         ~/.doom-emacs.d/bin/doom install
     fi
 
-    if [ ! -e $HOME/.SpaceVim ]; then
-        echo "=> Clone spacevim"
-        curl -sLf https://spacevim.org/install.sh | bash
-    fi
-
     if [ ! -e $HOME/.emacs.d ]; then
         echo "=> Clone chemacs2"
         git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
