@@ -57,7 +57,7 @@ setup_osx()
     fi
 
     echo "=> Install homebrew packages"
-    packages="fasd htop mpv ncdu ripgrep tmux tree"
+    packages="duf fasd htop mpv ncdu ripgrep tmux tree"
     brew update
     brew install $packages
 }
