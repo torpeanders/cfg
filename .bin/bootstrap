@@ -37,7 +37,7 @@ setup_nix()
     echo "=> Install apt packages"
     editors="neovim python3-neovim vim"
     devutils="cargo cmake build-essential tig"
-    miscutils="curl dex fasd htop mpv multitail ncdu ripgrep tldr tmux tmuxinator tmux-themepack-jimeh tree zsh"
+    miscutils="curl dex duf fasd htop mpv multitail ncdu ripgrep tldr tmux tmuxinator tmux-themepack-jimeh tree zsh"
     packages="$editors $devutils $miscutils"
     sudo apt-get update -qq -y
     sudo apt-get upgrade -qq -y
