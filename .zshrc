@@ -121,11 +121,6 @@ alias sf='fasd -sif'     # interactive file selection
 alias z='fasd_cd -d'     # cd, same functionality as j in autojump
 alias zz='fasd_cd -d -i' # cd with interactive selection
 
-alias ec="f -e 'emacsclient -t'"
-alias ecd="d -e 'emacsclient -t'"
-alias sec="sf -e 'emacsclient -t'"
-alias secd="sd -e 'emacsclient -t'"
-
 alias rm='rm -i'
 
 alias fuck='sudo $(fc -ln -1)'
@@ -133,6 +128,7 @@ alias fuck='sudo $(fc -ln -1)'
 alias vim="nvim"
 alias vi="nvim"
 
+alias ec="emacsclient -nw"
 alias ew="emacs --with-profile doom -nw"
 
 alias asu="adb shell su root"
