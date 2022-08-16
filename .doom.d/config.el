@@ -170,7 +170,7 @@
   )
 
 ;; diff init.el to look for new and cool stuff
-(defun doom/ediff-init-and-example ()
+(defun anr/ediff-init-and-example ()
   "ediff the current `init.el' with the example in doom-emacs-dir"
   (interactive)
   (ediff-files (concat doom-private-dir "init.el")
