@@ -132,6 +132,7 @@
 ;; mode-mappings
 (add-to-list 'auto-mode-alist '("\\.dts$" . dts-mode))
 (add-to-list 'auto-mode-alist '("\\.dtsi$" . dts-mode))
+(add-to-list 'auto-mode-alist '("\\.feature\\'" . feature-mode))
 (add-to-list 'auto-mode-alist '("\\.bp\\'" . soong-mode))
 
 ;; extra keybindings
@@ -187,5 +188,9 @@
 ;; no new workspace on project switch
 (setq +workspaces-on-switch-project-behavior nil)
 
-;;; set the fonts
+;; set the fonts
 ;;(setq doom-font (font-spec :family "Source Code Pro" :size 11))
+
+;; various keybindings
+(map! "C-c a" #'embark-act)
+(map! "C-c e" #'embark-export)
