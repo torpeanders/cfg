@@ -194,3 +194,6 @@
 ;; various keybindings
 (map! "C-c a" #'embark-act)
 (map! "C-c e" #'embark-export)
+(map! :leader
+      "j j" #'avy-goto-char-timer
+      "j l" #'avy-goto-line)
