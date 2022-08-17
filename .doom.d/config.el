@@ -197,3 +197,4 @@
 (map! :leader
       "j j" #'avy-goto-char-timer
       "j l" #'avy-goto-line)
+(map! :m [tab] #'indent-for-tab-command)
