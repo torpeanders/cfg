@@ -133,8 +133,6 @@ alias ew="emacs --with-profile doom -nw"
 
 alias asu="adb shell su root"
 
-unalias duf
-
 reboot() { echo  "I'm pretty sure you screwed up..."; }
 
 # Misc zsh setup
