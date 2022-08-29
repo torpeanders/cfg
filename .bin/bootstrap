@@ -2,20 +2,9 @@
 
 setup_cmn()
 {
-    if [ ! -e $HOME/.spacemacs.d ]; then
-        echo "=> Clone spacemacs"
-        git clone git@github.com:syl20bnr/spacemacs.git $HOME/.spacemacs.d -b develop
-    fi
-
-    if [ ! -e $HOME/.doom-emacs.d ]; then
-        echo "=> Clone doom-emacs"
-        git clone https://github.com/hlissner/doom-emacs ~/.doom-emacs.d
-        ~/.doom-emacs.d/bin/doom install
-    fi
-
     if [ ! -e $HOME/.emacs.d ]; then
-        echo "=> Clone chemacs2"
-        git clone https://github.com/plexus/chemacs2.git ~/.emacs.d
+        echo "=> Clone spacemacs"
+        git clone git@github.com:syl20bnr/spacemacs.git $HOME/.emacs.d -b develop
     fi
 
     if ! which fzf 2>&1 > /dev/null; then
