@@ -129,7 +129,6 @@ alias vim="nvim"
 alias vi="nvim"
 
 alias ec="emacsclient -nw"
-alias ew="emacs --with-profile doom -nw"
 
 alias asu="adb shell su root"
 
