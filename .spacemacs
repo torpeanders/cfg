@@ -650,7 +650,7 @@ before packages are loaded."
 
   (global-subword-mode 1)
 
-  (setq backup-directory-alist '(("." . "~/.spacemacs.d/backups")))
+  (setq backup-directory-alist '(("." . "~/.emacs.d/backups")))
 
   (windmove-default-keybindings)
   (winner-mode)
