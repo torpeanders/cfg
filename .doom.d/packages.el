@@ -54,3 +54,4 @@
 (package! fasd)
 (package! feature-mode)
 (package! fzf)
+(package! vscode-dark-plus-theme)
