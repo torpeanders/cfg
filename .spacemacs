@@ -52,7 +52,6 @@ This function should only modify configuration layer settings."
      emacs-lisp
      fasd
      git
-     gtags
      ivy
      java
      javascript
