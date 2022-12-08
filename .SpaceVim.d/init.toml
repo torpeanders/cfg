@@ -56,7 +56,11 @@ name = 'lang#java'
 name = 'lang#kotlin'
 
 [[layers]]
-name = 'lang#sh'
+name = 'lang#org'
 
 [[layers]]
 name = 'lang#python'
+
+[[layers]]
+name = 'lang#sh'
+
