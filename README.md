@@ -1,5 +1,6 @@
 Setup: 
 
+``` bash
 #!/usr/bin/env bash
 git clone --bare git@github.com:torpeanders/cfg.git $HOME/.cfg
 function config {
@@ -15,7 +16,9 @@ if [ $? = 0 ]; then
 fi;
 config checkout
 config config status.showUntrackedFiles no
+```
 
 Alias:
+``` bash
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
+```
