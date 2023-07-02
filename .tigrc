@@ -6,35 +6,35 @@ set ignore-case = yes
 ## Blame-View
 set blame-view = \
     line-number:yes,interval=1,width=5 \
-    date:default \
+    date:custom,format="%Y-%m-%d %H:%M" \
     author:full,width=16 \
     id:yes \
     text:yes
 
 ## Main-View
 set main-view = \
-    line-number:yes,interval=5,width=5 \
-    date:default \
-    author:full,width=16 \
-    id:yes \
-    commit-title:yes,graph=yes,refs=yes,overflow=yes
+    line-number:no,interval=5,width=5 \
+    date:custom,format="%Y-%m-%d %H:%M" \
+    author:abbreviated,width=12 \
+    id:no \
+    commit-title:yes,graph=yes,refs=yes,overflow=no
 
 ## Refs-View
 set refs-view = \
-    line-number:yes,interval=1,width=5 \
-    date:default \
-    author:full,width=16 \
-    id:yes \
+    line-number:no,interval=1,width=5 \
+    date:custom,format="%Y-%m-%d %H:%M" \
+    author:abbreviated,width=12 \
+    id:no \
     ref:yes \
-    commit-title:yes,graph=yes,refs=yes,overflow=yes
+    commit-title:yes,graph=yes,refs=yes,overflow=no
 
 ## Stash-View
 set stash-view = \
-    line-number:yes,interval=1,width=5 \
-    date:default \
-    author:full,width=16 \
-    id:yes \
-    commit-title:yes,graph=yes,refs=yes,overflow=yes
+    line-number:no,interval=1,width=5 \
+    date:custom,format="%Y-%m-%d %H:%M" \
+    author:abbreviated,width=12 \
+    id:no \
+    commit-title:yes,graph=yes,refs=yes,overflow=no
 
 ## Status-View
 set status-view = \
@@ -44,10 +44,10 @@ set status-view = \
 
 ## Tree-View
 set tree-view = \
-    line-number:yes,interval=5,width=5 \
-    date:default \
-    author:full \
-    id:yes \
+    line-number:no,interval=5,width=5 \
+    date:custom,format="%Y-%m-%d %H:%M" \
+    author:abbreviated,width=12 \
+    id:no \
     mode:yes \
     file-size:units \
     file-name:always
