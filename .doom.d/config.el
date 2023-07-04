@@ -198,6 +198,10 @@
       "j j" #'avy-goto-char-timer
       "j l" #'avy-goto-line)
 (map! :m [tab] #'indent-for-tab-command)
+;; use C-x C-s to save  buffer in insert state because of my muscle memory
+(map! :after company
+      :map evil-insert-state-map
+      "C-x C-s" #'save-buffer)
 
 ;; whitespace mode
 ;; Doom Emacs uses Whitespace mode for tab indents only. The following restores functionality.
