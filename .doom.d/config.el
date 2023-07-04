@@ -198,3 +198,17 @@
       "j j" #'avy-goto-char-timer
       "j l" #'avy-goto-line)
 (map! :m [tab] #'indent-for-tab-command)
+
+;; whitespace mode
+;; Doom Emacs uses Whitespace mode for tab indents only. The following restores functionality.
+(use-package! whitespace
+  :config
+  (setq
+    whitespace-style '(face tabs tab-mark spaces space-mark trailing newline newline-mark)
+    whitespace-display-mappings '(
+      (space-mark   ?\     [?\u00B7]     [?.])
+      (space-mark   ?\xA0  [?\u00A4]     [?_])
+      (newline-mark ?\n    [182 ?\n])
+      (tab-mark     ?\t    [?\u00BB ?\t] [?\\ ?\t])))
+  ;;(global-whitespace-mode +1)
+  )
