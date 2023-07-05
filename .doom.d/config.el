@@ -203,19 +203,45 @@
       :map evil-insert-state-map
       "C-x C-s" #'save-buffer)
 
-;; whitespace mode
-;; Doom Emacs uses Whitespace mode for tab indents only. The following restores functionality.
-(use-package! whitespace
-  :config
-  (setq
-    whitespace-style '(face tabs tab-mark spaces space-mark trailing newline newline-mark)
-    whitespace-display-mappings '(
-      (space-mark   ?\     [?\u00B7]     [?.])
-      (space-mark   ?\xA0  [?\u00A4]     [?_])
-      (newline-mark ?\n    [182 ?\n])
-      (tab-mark     ?\t    [?\u00BB ?\t] [?\\ ?\t])))
-  ;;(global-whitespace-mode +1)
-  )
+;; alternate whitespace-mode with whitespace.el defaults, doom defaults and off:
+(defun anr/set-whitespace-defaults()
+  ; only save the values the first time we get here
+  (unless (boundp 'anr/default-whitespace-style)
+    (setq anr/default-whitespace-style                (default-value 'whitespace-style)
+          anr/default-whitespace-display-mappings     (default-value 'whitespace-display-mappings)
+          anr/doom-whitespace-style                   whitespace-style
+          anr/doom-whitespace-display-mappings        whitespace-display-mappings
+          anr/whitespace-mode                         "doom")))
+
+; whitespace-style etc are set up with default-values in whitespace.el and then
+; modified in doom-highlight-non-default-indentation-h (in core/core-ui.el).
+; This is added to after-change-major-mode-hook in doom-init-ui-h (in
+; core/core-ui.el) and called a LOT: so I need to capture doom's modified
+; settings after that. The trouble is, this file (config.el) is called _before_
+; doom-init-ui-h which is called in window-setup-hook as the last gasp of
+; doom-initialize! find-file-hook appears to work.
+(add-hook 'find-file-hook #'anr/set-whitespace-defaults 'append)
+
+; doom=>default=>off=>doom=>...
+(defun anr/toggle-whitespace () (interactive)
+       (cond ((equal anr/whitespace-mode "doom")
+              (setq whitespace-style anr/default-whitespace-style
+                    whitespace-display-mappings anr/default-whitespace-display-mappings
+                    anr/whitespace-mode "default")
+              (prin1 (concat "whitespace-mode is whitespace default"))
+              (whitespace-mode))
+             ((equal anr/whitespace-mode "default")
+              (setq anr/whitespace-mode "off")
+              (prin1 (concat "whitespace-mode is off"))
+              (whitespace-mode -1))
+             (t ; (equal anr/whitespace-mode "off")
+              (setq whitespace-style anr/doom-whitespace-style
+                    whitespace-display-mappings anr/doom-whitespace-display-mappings
+                    anr/whitespace-mode "doom")
+              (prin1 (concat "whitespace-mode is doom default"))
+              (whitespace-mode))))
+
+(global-set-key (kbd "C-<f4>")          'anr/toggle-whitespace)
 
 ;; let emacs update the fasd database
 (global-fasd-mode 1)
