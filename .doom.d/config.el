@@ -241,7 +241,7 @@
               (prin1 (concat "whitespace-mode is doom default"))
               (whitespace-mode))))
 
-(global-set-key (kbd "C-<f4>")          'anr/toggle-whitespace)
+(global-set-key (kbd "C-<f4>") 'anr/toggle-whitespace)
 
 ;; let emacs update the fasd database
 (global-fasd-mode 1)
