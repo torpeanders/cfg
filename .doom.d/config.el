@@ -216,3 +216,6 @@
       (tab-mark     ?\t    [?\u00BB ?\t] [?\\ ?\t])))
   ;;(global-whitespace-mode +1)
   )
+
+;; let emacs update the fasd database
+(global-fasd-mode 1)
