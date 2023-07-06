@@ -5,29 +5,25 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# set PATH so it includes user's private bin if it exists
+# append various stuff to PATH
 if [ -d "$HOME/.scripts" ] ; then
     export PATH="$HOME/.scripts:$PATH"
 fi
 
-# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
 
-# set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.bin" ] ; then
     export PATH="$HOME/.bin:$PATH"
 fi
 
-# set PATH so it includes fzf binaries if it exists
 if [ -d "$HOME/.fzf/bin" ] ; then
     export PATH="$HOME/.fzf/bin:$PATH"
 fi
 
-# set PATH so it includes cargo binaries if they exist
-if [ -d "$HOME/.cargo/bin" ] ; then
-    export PATH="$HOME/.cargo/bin:$PATH"
+if [ -d "$HOME/.config/emacs/bin" ] ; then
+    export PATH="$HOME/.config/emacs/bin:$PATH"
 fi
 
 # Set the list of directories that Zsh searches for programs.
