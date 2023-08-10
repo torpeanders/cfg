@@ -245,3 +245,13 @@
 
 ;; let emacs update the fasd database
 (global-fasd-mode 1)
+
+(after! lsp-mode
+  ;; stop formatting while I type
+  (setq lsp-enable-on-type-formatting nil)
+  ;; disable lsp-enable-indentation, too "electric" behavior
+  ;; where also following lines are affected
+  (setq lsp-enable-indentation nil)
+  ;; watching large projects may cause Emacs slow-down
+  (setq lsp-enable-file-watchers nil)
+  )
