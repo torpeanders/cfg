@@ -124,7 +124,7 @@ alias fuck='sudo $(fc -ln -1)'
 alias vim="nvim"
 alias vi="nvim"
 
-alias em="emacs -nw"
+alias em="emacsclient -nw"
 
 alias asu="adb shell su root"
 
