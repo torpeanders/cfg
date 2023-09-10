@@ -3,10 +3,9 @@
 setup_cmn()
 {
     if [ ! -e $HOME/.config/emacs ]; then
-        echo "=> Clone spaceemacs"
-        git clone git@github.com:syl20bnr/spacemacs.git $HOME/.config/emacs -b develop
-        #git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
-        #~/.config/emacs/bin/doom install
+        echo "=> Clone doom-emacs"
+        git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+        ~/.config/emacs/bin/doom install
     fi
 
     if ! which fzf 2>&1 > /dev/null; then
