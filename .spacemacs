@@ -51,6 +51,7 @@ This function should only modify configuration layer settings."
      dtrt-indent
      emacs-lisp
      fasd
+     gtags
      git
      ivy
      java
