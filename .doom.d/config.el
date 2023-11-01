@@ -254,4 +254,6 @@
   (setq lsp-enable-indentation nil)
   ;; watching large projects may cause Emacs slow-down
   (setq lsp-enable-file-watchers nil)
+  ;; disable
+  (setq lsp-lens-enable nil)
   )
