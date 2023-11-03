@@ -168,6 +168,7 @@
   (setq magit-ediff-dwim-show-on-hunks t)
   (setq ediff-window-setup-function 'ediff-setup-windows-plain)
   (setq ediff-split-window-function 'split-window-horizontally)
+  (setq magit-bury-buffer-function #'magit-restore-window-configuration)
   )
 
 ;; diff init.el to look for new and cool stuff
