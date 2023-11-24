@@ -56,9 +56,9 @@ antigen bundle command-not-found
 antigen bundle common-aliases
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle mafredri/zsh-async
+antigen bundle zsh-users/zsh-autosuggestions
 # antigen bundle jeffreytse/zsh-vi-mode
 antigen theme romkatv/powerlevel10k
-
 # OS specific plugins
 if [[ $CURRENT_OS == 'OS X' ]]; then
     antigen bundle brew
@@ -148,6 +148,8 @@ setopt hist_verify            # show command with history expansion to user befo
 export EDITOR=vim
 
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#f08080"
 
 # Append a command directly
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
