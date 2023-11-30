@@ -149,7 +149,7 @@ export EDITOR=vim
 
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#f08080"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#696969"
 
 # Append a command directly
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
