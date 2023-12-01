@@ -697,6 +697,28 @@ before packages are loaded."
   (add-to-list 'auto-mode-alist '("\\.kt\\'" . kotlin-mode))
   (add-to-list 'auto-mode-alist '("\.feature$" . feature-mode))
 
+  ;; selinux mode
+  (define-generic-mode 'selinux-mode
+    '("#")  ;; Comments start with #
+    '("allow" "type" "class" "user" "role" "attribute" "permissive" "boolean" "if" "else" "typeattribute" "binder_call")
+    '(("\\(\\<\\(?:user\\|seinfo\\|name\\|domain\\|type\\|levelFrom\\)\\)\\s-*=\\([^ \t\n]*\\)"
+       (1 'font-lock-keyword-face)
+       (2 'font-lock-variable-name-face))
+      ("\\(u:object_r:[^ \t\n]+\\)"
+       (1 'font-lock-keyword-face))
+      ("\\(\\<\\(?:[a-zA-Z_]+\\)_prop\\)\\|\\(\\<\\(?:[a-zA-Z_]+\\)_dir_file\\)"
+       (1 'font-lock-type-face))
+      ("\\(\\<\\(?:[a-zA-Z_]+\\)_domain\\)\\s-*=\\([^ \t\n]*\\)"
+       (1 'font-lock-keyword-face)
+       (2 'font-lock-variable-name-face))
+      ("\\(\\<.*_violators\\)\\b"
+       (1 '(:foreground "lightcoral" :weight bold)))
+      ("\\.te\\'" . 'font-lock-type-face)
+      ("\\.contexts\\'" . 'font-lock-variable-name-face))
+    '("\\.te\\'" "\\.contexts\\'")  ;; File extensions
+    nil
+    "A mode for SELinux policy files.")
+
   ;; org setup
   (setq org-src-fontify-natively t)
   (setq
