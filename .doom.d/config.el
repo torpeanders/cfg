@@ -266,8 +266,13 @@
 
 (global-set-key (kbd "C-<f4>") 'anr/toggle-whitespace)
 
-;; let emacs update the fasd database
-(global-fasd-mode 1)
+(use-package! fasd
+              :config
+              (map! :leader
+                    "fad" #'fasd-find-directory-only
+                    "faf" #'fasd-find-file-only
+                    "fas" #'fasd-find-file-only)
+              (global-fasd-mode +1))
 
 (after! lsp-mode
   ;; stop formatting while I type
