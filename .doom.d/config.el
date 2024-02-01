@@ -274,6 +274,11 @@
                     "fas" #'fasd-find-file-only)
               (global-fasd-mode +1))
 
+(use-package! ace-window
+              :config
+              (map! :leader
+                    "wM" #'ace-swap-window))
+
 (after! lsp-mode
   ;; stop formatting while I type
   (setq lsp-enable-on-type-formatting nil)
