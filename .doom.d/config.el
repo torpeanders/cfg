@@ -269,9 +269,7 @@
 (use-package! fasd
               :config
               (map! :leader
-                    "fad" #'fasd-find-directory-only
-                    "faf" #'fasd-find-file-only
-                    "fas" #'fasd-find-file-only)
+                    "fas" #'fasd-find-file)
               (global-fasd-mode +1))
 
 (use-package! ace-window
