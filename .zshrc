@@ -48,7 +48,11 @@ fi
 antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle fasd
+case `uname` in
+  Linux)
+    antigen bundle fasd
+  ;;
+esac
 antigen bundle git
 antigen bundle pip
 antigen bundle python
@@ -72,9 +76,6 @@ fi
 
 # Tell Antigen that you're done.
 antigen apply
-
-# FASD
-eval "$(fasd --init posix-alias zsh-hook)"
 
 # FZF
 #export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
@@ -107,15 +108,21 @@ fi
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-# Aliases
-alias a='fasd -a'        # any
-alias s='fasd -si'       # show / search / select
-alias d='fasd -d'        # directory
-alias f='fasd -f'        # file
-alias sd='fasd -sid'     # interactive directory selection
-alias sf='fasd -sif'     # interactive file selection
-alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-alias zz='fasd_cd -d -i' # cd with interactive selection
+case `uname` in
+  Linux)
+      # FASD
+      eval "$(fasd --init posix-alias zsh-hook)"
+      # Aliases
+      alias a='fasd -a'        # any
+      alias s='fasd -si'       # show / search / select
+      alias d='fasd -d'        # directory
+      alias f='fasd -f'        # file
+      alias sd='fasd -sid'     # interactive directory selection
+      alias sf='fasd -sif'     # interactive file selection
+      alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+      alias zz='fasd_cd -d -i' # cd with interactive selection
+      ;;
+esac
 
 alias rm='rm -i'
 
