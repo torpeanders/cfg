@@ -51,6 +51,7 @@ antigen use oh-my-zsh
 case `uname` in
   Linux)
     antigen bundle fasd
+    antigen bundle zsh-users/zsh-autosuggestions
   ;;
 esac
 antigen bundle git
@@ -60,7 +61,6 @@ antigen bundle command-not-found
 antigen bundle common-aliases
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle mafredri/zsh-async
-antigen bundle zsh-users/zsh-autosuggestions
 # antigen bundle jeffreytse/zsh-vi-mode
 antigen theme romkatv/powerlevel10k
 # OS specific plugins
