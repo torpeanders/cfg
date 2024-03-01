@@ -131,7 +131,12 @@ alias fuck='sudo $(fc -ln -1)'
 alias vim="nvim"
 alias vi="nvim"
 
-alias em="emacsclient -nw"
+
+if [ -f "$HOME/.config/emacs/bin/doom" ]; then
+    alias em="emacs -nw"
+else
+    alias em="emacsclient -nw"
+fi
 
 alias asu="adb shell su root"
 
