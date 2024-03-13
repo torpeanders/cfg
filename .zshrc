@@ -6,25 +6,18 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # append various stuff to PATH
-if [ -d "$HOME/.scripts" ] ; then
-    export PATH="$HOME/.scripts:$PATH"
-fi
+append_to_path() {
+  if [ -d "$1" ] ; then
+    export PATH="$1:$PATH"
+  fi
+}
 
-if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
-fi
-
-if [ -d "$HOME/.bin" ] ; then
-    export PATH="$HOME/.bin:$PATH"
-fi
-
-if [ -d "$HOME/.fzf/bin" ] ; then
-    export PATH="$HOME/.fzf/bin:$PATH"
-fi
-
-if [ -d "$HOME/.config/emacs/bin" ] ; then
-    export PATH="$HOME/.config/emacs/bin:$PATH"
-fi
+append_to_path "$HOME/.bin"
+append_to_path "$HOME/.cargo/bin"
+append_to_path "$HOME/.config/emacs/bin"
+append_to_path "$HOME/.fzf/bin"
+append_to_path "$HOME/.scripts"
+append_to_path "$HOME/bin"
 
 # Set the list of directories that Zsh searches for programs.
 path=(
