@@ -287,6 +287,6 @@
   (setq lsp-enable-file-watchers nil)
   ;; disable
   (setq lsp-lens-enable nil)
-  (setq lsp-diagnostics-provider :none)
-  (setq lsp-ui-sideline-enable nil)
+  ;(setq lsp-diagnostics-provider :none)
+  ;(setq lsp-ui-sideline-enable nil)
   )
