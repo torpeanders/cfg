@@ -56,16 +56,14 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle mafredri/zsh-async
 # antigen bundle jeffreytse/zsh-vi-mode
 antigen theme romkatv/powerlevel10k
-# OS specific plugins
-if [[ $CURRENT_OS == 'OS X' ]]; then
-    antigen bundle brew
-    antigen bundle brew-cask
-    antigen bundle osx
-elif [[ $CURRENT_OS == 'Linux' ]]; then
-    :
-elif [[ $CURRENT_OS == 'Cygwin' ]]; then
-    :
-fi
+case `uname` in
+  Darwin)
+      antigen bundle brew
+      antigen bundle brew-cask
+      antigen bundle osx
+      antigen bundle agkozak/zsh-z
+      ;;
+esac
 
 # Tell Antigen that you're done.
 antigen apply
