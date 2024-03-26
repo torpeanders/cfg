@@ -162,7 +162,6 @@
 (global-set-key (kbd "<f2>")        'bm-toggle)
 (global-set-key (kbd "C-<f2>")      'bm-next)
 (global-set-key (kbd "S-<f2>")      'bm-previous)
-(global-set-key (kbd "C-c f")       'fasd-find-file)
 (global-set-key (kbd "C-c C-f")     'fzf)
 (global-set-key (kbd "C-c d")       'fzf-directory)
 (global-set-key (kbd "C-c <left>")  'winner-undo)
@@ -265,12 +264,6 @@
               (whitespace-mode))))
 
 (global-set-key (kbd "C-<f4>") 'anr/toggle-whitespace)
-
-(use-package! fasd
-              :config
-              (map! :leader
-                    "fas" #'fasd-find-file)
-              (global-fasd-mode +1))
 
 (use-package! ace-window
               :config

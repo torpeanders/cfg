@@ -50,7 +50,6 @@ This function should only modify configuration layer settings."
             c-c++-enable-google-newline t)
      dtrt-indent
      emacs-lisp
-     fasd
      gtags
      git
      ivy
@@ -777,7 +776,6 @@ before packages are loaded."
   (global-set-key (kbd "C-c C-f") 'fzf)
   (global-set-key (kbd "C-c d") 'fzf-directory)
   (global-set-key (kbd "C-c b") 'anr/create-scratch-buffer)
-  (global-set-key (kbd "C-c f") 'fasd-find-file)
 
   ;; enable solaire-mode
   (solaire-global-mode +1)
