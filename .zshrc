@@ -61,7 +61,6 @@ case `uname` in
       antigen bundle brew
       antigen bundle brew-cask
       antigen bundle osx
-      antigen bundle agkozak/zsh-z
       ;;
 esac
 
@@ -113,6 +112,12 @@ case `uname` in
       alias z='fasd_cd -d'     # cd, same functionality as j in autojump
       alias zz='fasd_cd -d -i' # cd with interactive selection
       ;;
+esac
+
+case `uname` in
+  Darwin)
+    eval "$(zoxide init zsh)"
+    ;;
 esac
 
 alias rm='rm -i'
