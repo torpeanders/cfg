@@ -1,80 +1,10 @@
 # Basics
-set line-graphics = default
-set vertical-split = false
-set ignore-case = yes
+#set line-graphics = default
+#set vertical-split = false
+#set ignore-case = yes
 
-## Blame-View
-set blame-view = \
-    line-number:yes,interval=1,width=5 \
-    date:custom,format="%Y-%m-%d %H:%M" \
-    author:full,width=16 \
-    id:yes \
-    text:yes
-
-## Main-View
-set main-view = \
-    line-number:no,interval=5,width=5 \
-    date:custom,format="%Y-%m-%d %H:%M" \
-    author:abbreviated,width=12 \
-    id:no \
-    commit-title:yes,graph=yes,refs=yes,overflow=no
-
-## Refs-View
-set refs-view = \
-    line-number:no,interval=1,width=5 \
-    date:custom,format="%Y-%m-%d %H:%M" \
-    author:abbreviated,width=12 \
-    id:no \
-    ref:yes \
-    commit-title:yes,graph=yes,refs=yes,overflow=no
-
-## Stash-View
-set stash-view = \
-    line-number:no,interval=1,width=5 \
-    date:custom,format="%Y-%m-%d %H:%M" \
-    author:abbreviated,width=12 \
-    id:no \
-    commit-title:yes,graph=yes,refs=yes,overflow=no
-
-## Status-View
-set status-view = \
-    line-number:no,interval=1,width=5 \
-    status:long \
-    file-name:always
-
-## Tree-View
-set tree-view = \
-    line-number:no,interval=5,width=5 \
-    date:custom,format="%Y-%m-%d %H:%M" \
-    author:abbreviated,width=12 \
-    id:no \
-    mode:yes \
-    file-size:units \
-    file-name:always
-
-# Speeding up Tig in large repositories.
-# - Reference: https://github.com/jonas/tig/blob/master/contrib/large-repo.tigrc
-
-## Use Git's default (reverse chronological) order, never automatically,
-## use topo-order for the commit graph.
-set commit-order = default
-
-## Show stages/unstaged/untracked changes in the main view.
-set show-changes = yes
-#set show-untracked = yes
-
-## Show notes for a commit.
-set show-notes = yes
-
-## Limit number of commits loaded by default to 1000.
-# set main-options = -n 1000
-
-## Show GPG signature in log view and diff view.
-set log-options = --show-signature
-set diff-options = --show-signature
-
-## Use diff-highlight in diff view.
-#set diff-highlight = true
-
-# Colors
+# Cosmetics
 color cursor    default 237
+
+# Speed up large repositories
+source ~/.tigrc.large
