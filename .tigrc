@@ -1,6 +1,6 @@
 # Basics
 #set line-graphics = default
-#set vertical-split = false
+set vertical-split = false
 #set ignore-case = yes
 
 # Cosmetics
