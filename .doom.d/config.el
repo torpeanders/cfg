@@ -108,7 +108,7 @@
 
 (defun anr/maybe-linux-style ()
   (when (and buffer-file-name
-             (string-match "linux\\|kernel" buffer-file-name))
+             (string-match "linux\\|kernel\\|display-drivers\\|camera-kernel" buffer-file-name))
     (anr/c-mode-offset-linux)))
 
 (defun anr/dts-mode-offset ()
