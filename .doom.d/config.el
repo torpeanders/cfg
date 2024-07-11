@@ -290,3 +290,24 @@
   ;(setq lsp-diagnostics-provider :none)
   ;(setq lsp-ui-sideline-enable nil)
   )
+
+(setq consult-cscope-use-initial t)
+(use-package! consult-cscope
+  :defer t
+  :commands (consult-cscope-symbol
+             consult-cscope-definition
+             consult-cscope-called-by
+             consult-cscope-calling
+             consult-cscope-text
+             consult-cscope-egrep
+             consult-cscope-file
+             consult-cscope-including
+             consult-cscope-assignment))
+
+(map! :leader
+ (:prefix-map ("c" . "code")
+  (:prefix ("h" . "cscope")
+   :desc "Search symbol" "s" #'consult-cscope-symbol
+   :desc "Search definition" "d" #'consult-cscope-definition
+   :desc "Search text" "t" #'consult-cscope-text
+   :desc "Search file" "f" #'consult-cscope-file)))
