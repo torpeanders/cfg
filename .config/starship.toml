@@ -15,3 +15,12 @@ disabled = true
 # No need to show what cloud I'm floating on
 [gcloud]
 disabled = true
+
+# Directory configuration
+[directory]
+truncation_length = 10
+truncate_to_repo = false
+
+# I don't care about the c compiler
+[c]
+disabled = true
