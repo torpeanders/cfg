@@ -24,3 +24,9 @@ truncate_to_repo = false
 # I don't care about the c compiler
 [c]
 disabled = true
+
+# git status
+[git_status]
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
