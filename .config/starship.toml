@@ -25,6 +25,10 @@ truncate_to_repo = false
 [c]
 disabled = true
 
+# I don't care about the python version
+[python]
+disabled = true
+
 # git status
 [git_status]
 ahead = '⇡${count}'
