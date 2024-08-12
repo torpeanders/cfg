@@ -29,6 +29,14 @@ disabled = true
 [python]
 disabled = true
 
+# I don't care about the java version
+[java]
+disabled = true
+
+# I don't care about the gradle version
+[gradle]
+disabled = true
+
 # git status
 [git_status]
 ahead = '⇡${count}'
