@@ -34,6 +34,9 @@ disabled = true
 [golang]
 disabled = true
 
+[lua]
+disabled = true
+
 [python]
 disabled = true
 
