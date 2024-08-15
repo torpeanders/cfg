@@ -21,20 +21,20 @@ disabled = true
 truncation_length = 10
 truncate_to_repo = false
 
-# I don't care about the c compiler
+# Don't care about compiler versions
 [c]
 disabled = true
 
-# I don't care about the python version
-[python]
-disabled = true
-
-# I don't care about the java version
 [java]
 disabled = true
 
-# I don't care about the gradle version
 [gradle]
+disabled = true
+
+[golang]
+disabled = true
+
+[python]
 disabled = true
 
 # git status
