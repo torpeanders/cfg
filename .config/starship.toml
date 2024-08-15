@@ -25,6 +25,9 @@ truncate_to_repo = false
 [c]
 disabled = true
 
+[cmake]
+disabled = true
+
 [java]
 disabled = true
 
