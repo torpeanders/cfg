@@ -31,6 +31,9 @@ disabled = true
 [java]
 disabled = true
 
+[kotlin]
+disabled = true
+
 [gradle]
 disabled = true
 
