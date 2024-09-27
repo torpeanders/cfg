@@ -79,6 +79,7 @@ This function should only modify configuration layer settings."
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages '(bm
+                                      consult-cscope
                                       dockerfile-mode
                                       doom-themes
                                       dts-mode
@@ -756,6 +757,27 @@ before packages are loaded."
         #'magit-display-buffer-fullframe-status-v1)
   (setq ediff-window-setup-function 'ediff-setup-windows-plain)
   (setq ediff-split-window-function 'split-window-horizontally)
+
+  ;; consult-cscope
+  (setq consult-cscope-use-initial t)
+  (use-package consult-cscope
+    :defer t
+    :commands (consult-cscope-symbol
+               consult-cscope-definition
+               consult-cscope-called-by
+               consult-cscope-calling
+               consult-cscope-text
+               consult-cscope-egrep
+               consult-cscope-file
+               consult-cscope-including
+               consult-cscope-assignment))
+
+  (spacemacs/set-leader-keys
+   "ch" '(:ignore t :which-key "cscope")
+   "chs" 'consult-cscope-symbol
+   "chd" 'consult-cscope-definition
+   "cht" 'consult-cscope-text
+   "chf" 'consult-cscope-file)
 
   ;; => code style
   (defun anr/maybe-linux-style ()
