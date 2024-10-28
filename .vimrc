@@ -1,118 +1,79 @@
-set nocompatible
-filetype off
+" Basic Vim Configuration
+set nocompatible             " Disable compatibility with old Vim versions
+filetype off                 " Disable file type detection initially
 
+" Determine the operating system
 let g:os = substitute(system('uname'), '\n', '', '')
 
-" Install vim-plug
+" Install vim-plug if it's not already installed
 if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" vim-plug init code
-call plug#begin('~/.vim/plugged')
-Plug 'ap/vim-buftabline'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'embear/vim-localvimrc'
-Plug 'itchyny/lightline.vim'
-Plug '~/.fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'scrooloose/nerdcommenter'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-fugitive'
-Plug 'easymotion/vim-easymotion'
-call plug#end()
+" vim-plug initialization
+call plug#begin('~/.vim/plugged')        " Start plugin section
+Plug 'airblade/vim-gitgutter'            " Git change indicators
+Plug 'ap/vim-buftabline'                 " Buffer tab line
+Plug 'easymotion/vim-easymotion'         " Quick navigation
+Plug 'itchyny/lightline.vim'             " Lightweight status line
+Plug 'junegunn/fzf.vim'                  " Fuzzy finder integrations
+Plug 'rafi/awesome-vim-colorschemes'     " Color schemes
+Plug 'scrooloose/nerdcommenter'          " Commenting utility
+Plug 'tpope/vim-fugitive'                " Git integration
+Plug '~/.fzf'                            " Fuzzy finder core
+call plug#end()                          " End plugin section
 
-set breakindent
-set autoindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set background=dark
-set noshowmode
-set autowrite
-set hlsearch
-"set incsearch
-syntax on
-set wildmode=longest:full,full
-set wildmenu
-set splitbelow
-set splitright
+" General Settings
+set breakindent                   " Enable break indent for better readability
+set autoindent                    " Enable automatic indentation
+set tabstop=4                     " Set tab width to 4 spaces
+set shiftwidth=4                  " Indent by 4 spaces when using '>>' or '<<'
+set expandtab                     " Convert tabs to spaces
+set background=dark               " Set background color to dark
+set noshowmode                    " Hide mode indicator
+set autowrite                     " Automatically save when switching buffers
+set hlsearch                      " Highlight search results
+set wildmode=longest:full,full    " Improve command-line completion
+set wildmenu                      " Enable command-line completion menu
+set splitbelow                    " New horizontal splits open below
+set splitright                    " New vertical splits open to the right
+syntax on                         " Enable syntax highlighting
 
+" Leader Key Configuration
 let mapleader=","
 
-highlight ColorColumn ctermbg=red
-call matchadd('ColorColumn', '\%81v', 100)
-
-let g:localvimrc_ask = 0
-
-" To fix that lightline doesn't show up
-set laststatus=2
-
-" vim-buftabline
-let g:buftabline_show = 2       " Always show
-let g:buftabline_numbers = 2    " Ordinal from left-to-right
-
-" color scheme
-colorscheme twilight256
-
-" tmux
-let g:tmux_navigator_disable_when_zoomed = 1
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <left> :TmuxNavigateLeft<cr>
-nnoremap <silent> <down> :TmuxNavigateDown<cr>
-nnoremap <silent> <up> :TmuxNavigateUp<cr>
-nnoremap <silent> <right> :TmuxNavigateRight<cr>
-
-" Set working directory
+" Set working directory to current file's directory
 nnoremap <leader>. :lcd %:p:h<CR>
 
-" Navigate tabs
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
+" Highlight current column for better visibility
+highlight ColorColumn ctermbg=red    " Set background color for ColorColumn
+call matchadd('ColorColumn', '\%81v', 100)
 
-" Navigate splits
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" Set color scheme
+colorscheme twilight256
 
-nnoremap <silent> <C-Right> <c-w>l
-nnoremap <silent> <C-Left> <c-w>h
-nnoremap <silent> <C-Up> <c-w>k
-nnoremap <silent> <C-Down> <c-w>j
+" vim-buftabline Settings
+let g:buftabline_show = 2
+let g:buftabline_numbers = 2
 
-""" fzf
-nnoremap <silent> <C-f> :Files<Cr>
-nnoremap <silent> <Leader>f :Rg<Cr>
-nnoremap <silent> <Leader>s :BLines<Cr>
-"nnoremap <silent> <Leader>g :Find<Cr>
-nnoremap <silent> <Leader>c :Commits<Cr>
-nnoremap <silent> <Leader>b :Buffers<CR>
+" lightline Settings
+set laststatus=2
 
-""" EasyMotion
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-" `s{char}{char}{label}`
-nmap s <Plug>(easymotion-overwin-f2)
-
-" Turn on case-insensitive feature
+" EasyMotion Configuration
+let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
+nmap s <Plug>(easymotion-overwin-f2)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-""" misc
-autocmd VimResized * wincmd =
 
-""" show trailing whitespaces
-"let &colorcolumn="80"
-"set list
-"set listchars=tab:▸\ ,trail:¬,nbsp:.,precedes:«,extends:»
-"augroup ListChars2
-"    au!
-"    autocmd filetype go set listchars+=tab:\ \
-"    autocmd ColorScheme * hi! link SpecialKey Normal
-"augroup END
+" fzf Key Mappings
+nnoremap <silent> <Leader>ff :Files<CR>
+nnoremap <silent> <Leader>fg :Rg<CR>
+nnoremap <silent> <Leader>fb :Buffers<CR>
+nnoremap <silent> <Leader>fs :BLines<CR>
+nnoremap <silent> <Leader>fc :Commits<CR>
+
+" Adjust window sizes on resize
+autocmd VimResized * wincmd =
