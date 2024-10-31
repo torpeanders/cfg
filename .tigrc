@@ -13,7 +13,7 @@ source ~/.tigrc.large
 set blame-view = \
     line-number:yes,interval=1,width=5 \
     date:custom,format="%Y-%m-%d %H:%M" \
-    author:full,width=16 \
+    author:full,width=20 \
     id:yes \
     text:yes
 
@@ -21,7 +21,7 @@ set blame-view = \
 set main-view = \
     line-number:no,interval=5,width=5 \
     date:custom,format="%Y-%m-%d %H:%M" \
-    author:abbreviated,width=12 \
+    author:full,width=20 \
     id:no \
     commit-title:yes,graph=yes,refs=yes,overflow=no
 
@@ -29,7 +29,7 @@ set main-view = \
 set refs-view = \
     line-number:no,interval=1,width=5 \
     date:custom,format="%Y-%m-%d %H:%M" \
-    author:abbreviated,width=12 \
+    author:full,width=20 \
     id:no \
     ref:yes \
     commit-title:yes,graph=yes,refs=yes,overflow=no
@@ -38,7 +38,7 @@ set refs-view = \
 set stash-view = \
     line-number:no,interval=1,width=5 \
     date:custom,format="%Y-%m-%d %H:%M" \
-    author:abbreviated,width=12 \
+    author:full,width=20 \
     id:no \
     commit-title:yes,graph=yes,refs=yes,overflow=no
 
@@ -52,7 +52,7 @@ set status-view = \
 set tree-view = \
     line-number:no,interval=5,width=5 \
     date:custom,format="%Y-%m-%d %H:%M" \
-    author:abbreviated,width=12 \
+    author:full,width=20 \
     id:no \
     mode:yes \
     file-size:units \
