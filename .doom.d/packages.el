@@ -55,5 +55,6 @@
 (package! fasd)
 (package! feature-mode)
 (package! fzf)
+(package! gptel)
 (package! vscode-dark-plus-theme)
 (package! yaml-mode)

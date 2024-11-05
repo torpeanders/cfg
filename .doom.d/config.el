@@ -9,6 +9,10 @@
 (setq user-full-name "Anders Rønningen"
       user-mail-address "anders@ronningen.priv.no")
 
+;; Authentication
+(after! auth-source
+  (setq auth-sources '("~/.authinfo" "~/.authinfo.gpg")))
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -222,7 +226,11 @@
       "j l" #'avy-goto-line)
 (map! :m [tab] #'indent-for-tab-command)
 ;; use C-x C-s to save  buffer in insert state because of my muscle memory
-(map! :after company
+(map! :after (company)
+      :map evil-insert-state-map
+      "C-x C-s" #'save-buffer)
+
+(map! :after (yasnippet)
       :map evil-insert-state-map
       "C-x C-s" #'save-buffer)
 
@@ -315,3 +323,18 @@
                             :desc "Search definition" "d" #'consult-cscope-definition
                             :desc "Search text" "t" #'consult-cscope-text
                             :desc "Search file" "f" #'consult-cscope-file)))
+
+;; gptel
+(use-package! gptel)
+
+(map! :leader
+      :prefix "$ g"
+      :desc "Start a new GPTel session" "g" #'gptel
+      :desc "Send a message to GPTel" "s" #'gptel-send
+      :desc "Abort active GPTel process" "q" #'gptel-abort
+      :desc "Open GPTel menu" "m" #'gptel-menu
+      :desc "Add to GPTel context" "c" #'gptel-add
+      :desc "Add file to GPTel context" "f" #'gptel-add-file
+      :desc "Set topic in Org-mode" "o" #'gptel-org-set-topic
+      :desc "Set properties in Org-mode" "p" #'gptel-org-set-properties)
+
