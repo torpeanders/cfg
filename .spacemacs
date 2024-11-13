@@ -56,6 +56,8 @@ This function should only modify configuration layer settings."
      ivy
      java
      javascript
+     (llm-client :variables
+                 llm-client-enable-gptel t)
      ;; multiple-cursors
      org
      pandoc
