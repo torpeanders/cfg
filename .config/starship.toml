@@ -46,6 +46,9 @@ disabled = true
 [python]
 disabled = true
 
+[rust]
+disabled = true
+
 # git status
 [git_status]
 ahead = '⇡${count}'
