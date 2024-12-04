@@ -1,9 +1,16 @@
 # Don't let ripgrep vomit really long lines to my terminal, and show a preview.
---max-columns=300
+--max-columns=160
 
 # Set the colors.
 # --colors=line:none
-# --colors=line:style:bold
+#--colors=line:style:bold
 
 # Because who cares about case!?
 # --smart-case
+
+# Ignore out folder
+--glob=!.out/**
+
+# Add to make type.
+--type-add
+make:Android.bp
