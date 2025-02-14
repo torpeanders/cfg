@@ -120,8 +120,8 @@ alias vim="nvim"
 alias vi="nvim"
 
 
-if [ -d "$HOME/.config/doom" ]; then
-    alias em="emacs --with-profile=doom -nw"
+if [ -f "$HOME/.config/emacs/bin/doom" ]; then
+    alias em="emacs -nw"
 else
     alias em="emacsclient -nw"
 fi
