@@ -17,6 +17,7 @@ require("lazy").setup({
   "hrsh7th/cmp-nvim-lsp",                     -- LSP completion
   "L3MON4D3/LuaSnip",                         -- Snippets
   "itchyny/lightline.vim",                    -- Status line
+  "folke/flash.nvim",
   "folke/which-key.nvim",                     -- Keybinding helper
   { "catppuccin/nvim", name = "catppuccin" }, -- Dark theme with good C/C++ contrast
 })
@@ -74,9 +75,32 @@ vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { noremap = true, 
 vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>fl", ":Telescope current_buffer_fuzzy_find<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>fr", function() require("telescope.builtin").oldfiles() end, { noremap = true, silent = true, desc = "Open recent files" })
 
 -- Git Signs
-require("gitsigns").setup()
+require("gitsigns").setup({
+  on_attach = function(bufnr)
+    local gs = package.loaded.gitsigns
+
+    -- Navigation
+    vim.keymap.set("n", "]c", function() gs.next_hunk() end, { buffer = bufnr, desc = "Next Hunk" })
+    vim.keymap.set("n", "[c", function() gs.prev_hunk() end, { buffer = bufnr, desc = "Prev Hunk" })
+
+    -- Actions
+    vim.keymap.set("n", "<leader>hs", function() gs.stage_hunk() end, { buffer = bufnr, desc = "Stage Hunk" })
+    vim.keymap.set("n", "<leader>hu", function() gs.undo_stage_hunk() end, { buffer = bufnr, desc = "Undo Stage Hunk" })
+    vim.keymap.set("n", "<leader>hr", function() gs.reset_hunk() end, { buffer = bufnr, desc = "Reset Hunk" })
+    vim.keymap.set("n", "<leader>hR", function() gs.reset_buffer() end, { buffer = bufnr, desc = "Reset Buffer" })
+    vim.keymap.set("n", "<leader>hp", function() gs.preview_hunk() end, { buffer = bufnr, desc = "Preview Hunk" })
+    vim.keymap.set("n", "<leader>hb", function() gs.blame_line() end, { buffer = bufnr, desc = "Blame Line" })
+  end
+})
+
+-- Flash
+require("flash").setup()
+vim.keymap.set("n", "s", function() require("flash").jump() end, { desc = "Jump anywhere" })
+vim.keymap.set("n", "<leader>j", function() require("flash").jump({ search = { forward = true, wrap = false } }) end, { desc = "Jump forward" })
+vim.keymap.set("n", "<leader>k", function() require("flash").jump({ search = { forward = false, wrap = false } }) end, { desc = "Jump backward" })
 
 -- Which Key
 require("which-key").setup({})
