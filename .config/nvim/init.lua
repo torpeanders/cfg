@@ -7,16 +7,18 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Plugin Setup
 require("lazy").setup({
-  "nvim-lua/plenary.nvim",         -- Dependency for other plugins
-  "nvim-telescope/telescope.nvim", -- Fuzzy finder replacement
-  "lewis6991/gitsigns.nvim",       -- Git integration
-  "tpope/vim-fugitive",            -- Git wrapper
-  "nvim-treesitter/nvim-treesitter", -- Better syntax highlighting
-  "neovim/nvim-lspconfig",         -- Built-in LSP support
-  "hrsh7th/nvim-cmp",              -- Autocompletion
-  "hrsh7th/cmp-nvim-lsp",          -- LSP completion
-  "L3MON4D3/LuaSnip",              -- Snippets
-  "itchyny/lightline.vim"           -- Status line
+  "nvim-lua/plenary.nvim",                    -- Dependency for other plugins
+  "nvim-telescope/telescope.nvim",            -- Fuzzy finder replacement
+  "lewis6991/gitsigns.nvim",                  -- Git integration
+  "tpope/vim-fugitive",                       -- Git wrapper
+  "nvim-treesitter/nvim-treesitter",          -- Better syntax highlighting
+  "neovim/nvim-lspconfig",                    -- Built-in LSP support
+  "hrsh7th/nvim-cmp",                         -- Autocompletion
+  "hrsh7th/cmp-nvim-lsp",                     -- LSP completion
+  "L3MON4D3/LuaSnip",                         -- Snippets
+  "itchyny/lightline.vim",                    -- Status line
+  "folke/which-key.nvim",                     -- Keybinding helper
+  { "catppuccin/nvim", name = "catppuccin" }, -- Dark theme with good C/C++ contrast
 })
 
 -- General Settings
@@ -75,3 +77,10 @@ vim.keymap.set("n", "<leader>fl", ":Telescope current_buffer_fuzzy_find<CR>", { 
 
 -- Git Signs
 require("gitsigns").setup()
+
+-- Which Key
+require("which-key").setup({})
+
+-- Color Theme
+vim.cmd.colorscheme("catppuccin-mocha") -- Use the "mocha" variant for a darker look
+
