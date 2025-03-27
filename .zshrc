@@ -160,3 +160,5 @@ eval "$(starship init zsh)"
 [[ ! -f ~/.zshrc-local.zsh ]] || source ~/.zshrc-local.zsh
 
 [ -f ~/.local_shell_stuff ] && source ~/.local_shell_stuff
+
+export ADB_LIBUSB="0"
