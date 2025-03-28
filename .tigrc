@@ -22,7 +22,7 @@ set main-view = \
     line-number:no,interval=5,width=5 \
     date:custom,format="%Y-%m-%d %H:%M" \
     author:full,width=20 \
-    id:no \
+    id:yes \
     commit-title:yes,graph=yes,refs=yes,overflow=no
 
 ## Refs-View
