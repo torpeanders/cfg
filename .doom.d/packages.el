@@ -57,4 +57,5 @@
 (package! fzf)
 (package! gptel)
 (package! vscode-dark-plus-theme)
+(package! catppuccin-theme)
 (package! yaml-mode)

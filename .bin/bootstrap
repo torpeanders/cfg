@@ -14,6 +14,12 @@ setup_cmn()
         git clone https://github.com/laktak/extrakto $HOME/.tmux.d/extrakto
         ln -s $HOME/.tmux.d/extrakto/extrakto.py $HOME/bin/extrakto
     fi
+
+    if [ ! -e $HOME/.config/tmux/plugins/catppuccin ]; then
+        echo "=> Clone catppuccin"
+        mkdir -p ~/.config/tmux/plugins/catppuccin
+        git clone -b v2.1.3 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+    fi
 }
 
 setup_nix()
