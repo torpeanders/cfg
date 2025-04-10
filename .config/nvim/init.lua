@@ -9,6 +9,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   "nvim-lua/plenary.nvim",                    -- Dependency for other plugins
   "nvim-telescope/telescope.nvim",            -- Fuzzy finder replacement
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   "lewis6991/gitsigns.nvim",                  -- Git integration
   "tpope/vim-fugitive",                       -- Git wrapper
   "nvim-treesitter/nvim-treesitter",          -- Better syntax highlighting
@@ -69,11 +70,22 @@ cmp.setup({
 })
 
 -- Telescope Setup
-require("telescope").setup{}
+require('telescope').setup {
+  extensions = {
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "ignore_case",        -- or "ignore_case" or "respect_case"
+                                       -- the default case_mode is "smart_case"
+    }
+  }
+}
+require('telescope').load_extension('fzf')
+
 vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>fl", ":Telescope current_buffer_fuzzy_find<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>fr", function() require("telescope.builtin").oldfiles() end, { noremap = true, silent = true, desc = "Open recent files" })
 
