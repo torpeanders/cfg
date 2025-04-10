@@ -62,6 +62,8 @@ antigen apply
 # FZF
 #export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+export FZF_DEFAULT_OPTS='--height 15 --no-reverse'
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Environment
