@@ -39,7 +39,7 @@ vim.opt.smartcase = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.termguicolors = true
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 -- Keybindings
 vim.keymap.set("n", "<leader>.", ":lcd %:p:h<CR>", { noremap = true, silent = true })
