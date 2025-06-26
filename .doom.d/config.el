@@ -338,3 +338,22 @@
       :desc "Set topic in Org-mode" "o" #'gptel-org-set-topic
       :desc "Set properties in Org-mode" "p" #'gptel-org-set-properties)
 
+(when (eq system-type 'darwin)
+  ;; Set default frame size (width x height in characters)
+  (setq initial-frame-alist '((width . 180) (height . 60)))
+  (setq default-frame-alist '((width . 180) (height . 60)))
+
+  (defun anr/center-frame nil
+    "Center the Emacs frame on screen."
+    (interactive)
+    (let* ((frame (selected-frame))
+           (display-width (display-pixel-width))
+           (display-height (display-pixel-height))
+           (frame-width (frame-pixel-width frame))
+           (frame-height (frame-pixel-height frame))
+           (left (/ (- display-width frame-width) 2))
+           (top (/ (- display-height frame-height) 2)))
+      (set-frame-position frame left top)))
+
+  ;; Run after startup
+  (add-hook 'window-setup-hook #'anr/center-frame))
