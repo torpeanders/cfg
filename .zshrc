@@ -120,14 +120,7 @@ alias fuck='sudo $(fc -ln -1)'
 
 alias vim="nvim"
 alias vi="nvim"
-
-
-if [ -d "$HOME/.config/doom" ]; then
-    alias em="emacs --with-profile=doom -nw"
-else
-    alias em="emacsclient -nw"
-fi
-
+alias em="emacs -nw"
 alias asu="adb shell su root"
 
 reboot() { echo  "I'm pretty sure you screwed up..."; }
