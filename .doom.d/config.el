@@ -324,20 +324,6 @@
                             :desc "Search text" "t" #'consult-cscope-text
                             :desc "Search file" "f" #'consult-cscope-file)))
 
-;; gptel
-(use-package! gptel)
-
-(map! :leader
-      :prefix "$ g"
-      :desc "Start a new GPTel session" "g" #'gptel
-      :desc "Send a message to GPTel" "s" #'gptel-send
-      :desc "Abort active GPTel process" "q" #'gptel-abort
-      :desc "Open GPTel menu" "m" #'gptel-menu
-      :desc "Add to GPTel context" "c" #'gptel-add
-      :desc "Add file to GPTel context" "f" #'gptel-add-file
-      :desc "Set topic in Org-mode" "o" #'gptel-org-set-topic
-      :desc "Set properties in Org-mode" "p" #'gptel-org-set-properties)
-
 (when (eq system-type 'darwin)
   ;; Set default frame size (width x height in characters)
   (setq initial-frame-alist '((width . 180) (height . 60)))
