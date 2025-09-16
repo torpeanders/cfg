@@ -57,4 +57,3 @@
 (package! fzf)
 (package! vscode-dark-plus-theme)
 (package! catppuccin-theme)
-(package! yaml-mode)
