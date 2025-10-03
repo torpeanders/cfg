@@ -29,7 +29,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'catppuccin)
+(setq doom-theme 'vscode-dark-plus)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -110,10 +110,23 @@
   (setq indent-tabs-mode t)
   (setq c-basic-offset 8))
 
+(defun anr/c-ts-mode-offset-linux ()
+  "C mode with adjusted defaults for use with the Linux kernel."
+  (interactive)
+  (setq tab-width 8)
+  (setq indent-tabs-mode t)
+  (setq c-ts-mode-indent-style 'linux)
+  (setq c-ts-mode-indent-offset 8))
+
 (defun anr/maybe-linux-style ()
   (when (and buffer-file-name
              (string-match "linux\\|kernel\\|display-drivers\\|camera-kernel" buffer-file-name))
     (anr/c-mode-offset-linux)))
+
+(defun anr/maybe-linux-ts-style ()
+  (when (and buffer-file-name
+             (string-match "linux\\|kernel\\|display-drivers\\|camera-kernel" buffer-file-name))
+    (anr/c-ts-mode-offset-linux)))
 
 (defun anr/dts-mode-offset ()
   "Dts* files."
@@ -122,6 +135,7 @@
   (setq indent-tabs-mode t))
 
 (add-hook! c-mode 'anr/maybe-linux-style t)
+(add-hook! c-ts-mode 'anr/maybe-linux-ts-style t)
 (add-hook! dts-mode 'anr/dts-mode-offset t)
 
 ;; make a mode for soong
