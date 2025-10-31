@@ -51,9 +51,7 @@ vim.keymap.set("n", "<leader>wj", "<C-w>j", { noremap = true, silent = true, des
 vim.keymap.set("n", "<leader>wk", "<C-w>k", { noremap = true, silent = true, desc = "Navigate window up" })
 
 -- LSP Configuration
-local lspconfig = require("lspconfig")
-lspconfig.ts_ls.setup{}
-lspconfig.pyright.setup{}
+vim.lsp.enable('pyright')
 
 -- Autocompletion Setup
 local cmp = require("cmp")
