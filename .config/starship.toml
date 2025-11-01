@@ -31,6 +31,9 @@ disabled = true
 [cmake]
 disabled = true
 
+[deno]
+disabled = true
+
 [java]
 disabled = true
 
