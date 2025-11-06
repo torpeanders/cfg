@@ -276,28 +276,6 @@
                                         ;(setq lsp-ui-sideline-enable nil)
         )
 
-;; cscope
-(setq consult-cscope-use-initial t)
-(use-package! consult-cscope
-              :defer t
-              :commands (consult-cscope-symbol
-                         consult-cscope-definition
-                         consult-cscope-called-by
-                         consult-cscope-calling
-                         consult-cscope-text
-                         consult-cscope-egrep
-                         consult-cscope-file
-                         consult-cscope-including
-                         consult-cscope-assignment))
-
-(map! :leader
-      (:prefix-map ("c" . "code")
-                   (:prefix ("h" . "cscope")
-                            :desc "Search symbol" "s" #'consult-cscope-symbol
-                            :desc "Search definition" "d" #'consult-cscope-definition
-                            :desc "Search text" "t" #'consult-cscope-text
-                            :desc "Search file" "f" #'consult-cscope-file)))
-
 (when (eq system-type 'darwin)
   ;; Set default frame size (width x height in characters)
   (setq initial-frame-alist '((width . 180) (height . 60)))

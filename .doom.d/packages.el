@@ -50,7 +50,6 @@
 ;(unpin! t)
 
 (package! bm)
-(package! consult-cscope :recipe (:host github :repo "blorbx/consult-cscope"))
 (package! dts-mode)
 (package! fasd)
 (package! feature-mode)
