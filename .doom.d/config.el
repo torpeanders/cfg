@@ -248,26 +248,6 @@
       :map evil-insert-state-map
       "C-x C-s" #'save-buffer)
 
-(defun anr/toggle-whitespace () (interactive)
-       (cond ((equal anr/whitespace-mode "doom")
-              (setq whitespace-style anr/default-whitespace-style
-                    whitespace-display-mappings anr/default-whitespace-display-mappings
-                    anr/whitespace-mode "default")
-              (prin1 (concat "whitespace-mode is whitespace default"))
-              (whitespace-mode))
-             ((equal anr/whitespace-mode "default")
-              (setq anr/whitespace-mode "off")
-              (prin1 (concat "whitespace-mode is off"))
-              (whitespace-mode -1))
-             (t ; (equal anr/whitespace-mode "off")
-              (setq whitespace-style anr/doom-whitespace-style
-                    whitespace-display-mappings anr/doom-whitespace-display-mappings
-                    anr/whitespace-mode "doom")
-              (prin1 (concat "whitespace-mode is doom default"))
-              (whitespace-mode))))
-
-(global-set-key (kbd "C-<f4>") 'anr/toggle-whitespace)
-
 ;; fasd
 (use-package! fasd
               :config
