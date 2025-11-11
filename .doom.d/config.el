@@ -208,7 +208,7 @@
          '(org-level-7 ((t (:weight bold :height 1.0))))
          '(org-level-8 ((t (:weight bold :height 1.0)))))
         )
-;;
+
 ;; magit setup
 (after! magit
         (set-default 'magit-stage-all-confirm nil)
