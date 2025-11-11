@@ -29,7 +29,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'vscode-dark-plus)
+(setq doom-theme 'catppuccin)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -198,9 +198,17 @@
            ("DELEGATED" . (:foreground "yellow" :weight bold))
            ("CANCELLED" . (:foreground "red" :weight bold))
            ))
-        ;; ... other org configuration here
+        (custom-set-faces
+         '(org-level-1 ((t (:weight bold :height 1.6))))
+         '(org-level-2 ((t (:weight bold :height 1.4))))
+         '(org-level-3 ((t (:weight bold :height 1.3))))
+         '(org-level-4 ((t (:weight bold :height 1.2))))
+         '(org-level-5 ((t (:weight bold :height 1.1))))
+         '(org-level-6 ((t (:weight bold :height 1.0))))
+         '(org-level-7 ((t (:weight bold :height 1.0))))
+         '(org-level-8 ((t (:weight bold :height 1.0)))))
         )
-
+;;
 ;; magit setup
 (after! magit
         (set-default 'magit-stage-all-confirm nil)
