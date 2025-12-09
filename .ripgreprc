@@ -9,7 +9,7 @@
 # --smart-case
 
 # Ignore out folder
---glob=!.out/**
+--glob=!out/**
 
 # Add to make type.
 --type-add
