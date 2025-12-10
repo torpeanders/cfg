@@ -36,7 +36,6 @@ antigen use oh-my-zsh
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 case `uname` in
   Linux)
-    antigen bundle fasd
     antigen bundle zsh-users/zsh-autosuggestions
   ;;
 esac
@@ -92,27 +91,8 @@ fi
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-case `uname` in
-  Linux)
-      # FASD
-      eval "$(fasd --init posix-alias zsh-hook)"
-      # Aliases
-      alias a='fasd -a'        # any
-      alias s='fasd -si'       # show / search / select
-      alias d='fasd -d'        # directory
-      alias f='fasd -f'        # file
-      alias sd='fasd -sid'     # interactive directory selection
-      alias sf='fasd -sif'     # interactive file selection
-      alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-      alias zz='fasd_cd -d -i' # cd with interactive selection
-      ;;
-esac
-
-case `uname` in
-  Darwin)
-    eval "$(zoxide init zsh)"
-    ;;
-esac
+# zoxide
+eval "$(zoxide init zsh)"
 
 alias rm='rm -i'
 
