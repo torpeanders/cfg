@@ -25,10 +25,35 @@ setup_cmn()
 setup_nix()
 {
     echo "=> Install apt packages"
-    editors="neovim python3-neovim vim"
-    devutils="cmake build-essential tig"
-    miscutils="curl dex duf htop mpv multitail ncdu ripgrep tldr tmux tmuxinator tmux-themepack-jimeh tree zsh"
-    packages="$editors $devutils $miscutils"
+    packages="
+        batcat
+        btop
+        build-essential
+        cmake
+        curl
+        dex
+        duf
+        dust
+        eza
+        fd-find
+        git-delta
+        gitui
+        mpv
+        multitail
+        ncdu
+        neovim
+        procs
+        python3-neovim
+        ripgrep
+        tldr
+        tmux
+        tmux-themepack-jimeh
+        tmuxinator
+        tree
+        vim
+        zoxide
+        zsh
+    "
     sudo apt-get update -qq -y
     sudo apt-get upgrade -qq -y
     sudo apt-get install -qq -y $packages
@@ -47,7 +72,24 @@ setup_osx()
     fi
 
     echo "=> Install homebrew packages"
-    packages="duf htop mpv ncdu ripgrep tmux starship tree zoxide"
+    packages="
+        bat
+        btop
+        duf
+        dust
+        eza
+        fd
+        git-delta
+        gitui
+        mpv
+        ncdu
+        procs
+        ripgrep
+        starship
+        tmux
+        tree
+        zoxide
+    "
     brew update
     brew install $packages
 }
