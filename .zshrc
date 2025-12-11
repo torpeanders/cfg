@@ -1,5 +1,5 @@
 # ==============================================================================
-# I. Environment Variables & Path
+# Environment Variables & Path
 # ==============================================================================
 
 # Set USER if not already set
@@ -69,7 +69,7 @@ path=(
 )
 
 # ==============================================================================
-# II. Shell Options (setopt)
+# Shell Options (setopt)
 # ==============================================================================
 
 ## History command configuration
@@ -82,7 +82,7 @@ setopt hist_verify            # show command with history expansion to user befo
 #setopt share_history          # share command history data
 
 # ==============================================================================
-# III. Custom Functions
+# Custom Functions
 # ==============================================================================
 
 # Wrapper for ssh if ssh-wrapper exists
@@ -96,28 +96,7 @@ fi
 reboot() { echo  "I'm pretty sure you screwed up..."; }
 
 # ==============================================================================
-# IV. Aliases
-# ==============================================================================
-
-alias asu="adb shell su root"
-alias cat="bat"
-#alias cd="z"
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias du='dust'
-alias em="emacs -nw"
-#alias g='gitui'
-#alias gd="gitui -m diff"
-alias la="eza -a"
-alias ll="eza -alF --icons"
-alias ls="eza"
-alias ps='procs'
-alias rm='rm -i'
-alias top='btop'
-alias v="nvim"
-alias vim="nvim"
-
-# ==============================================================================
-# V. Plugin & Tool Initialization
+# Plugin & Tool Initialization
 # ==============================================================================
 
 # --- Antigen (Zsh Plugin Manager) ---
@@ -180,7 +159,7 @@ eval "$(starship init zsh)"
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 
 # ==============================================================================
-# VI. Zsh Completion System
+# Zsh Completion System
 # ==============================================================================
 
 # Misc zsh setup
@@ -188,7 +167,27 @@ zstyle ':completion:*' special-dirs true
 zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
 
 # ==============================================================================
-# VII. Local/Personal Configuration
+# Aliases
+# ==============================================================================
+
+alias asu="adb shell su root"
+alias cat="bat"
+#alias cd="z"
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias du='dust'
+alias em="emacs -nw"
+alias g='gitui'
+alias la="eza -a"
+alias ll="eza -alF --icons"
+alias ls="eza"
+alias ps='procs'
+alias rm='rm -i'
+alias top='btop'
+alias v="nvim"
+alias vim="nvim"
+
+# ==============================================================================
+# Local/Personal Configuration
 # ==============================================================================
 
 # Source local files for overrides and additions
