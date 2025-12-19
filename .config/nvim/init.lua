@@ -20,7 +20,7 @@ require("lazy").setup({
   "itchyny/lightline.vim",                    -- Status line
   "folke/flash.nvim",
   "folke/which-key.nvim",                     -- Keybinding helper
-  "morhetz/gruvbox",                          -- Gruvbox colorscheme
+  { "catppuccin/nvim", name = "catppuccin" }, -- Dark theme with good C/C++ contrast
 })
 
 -- General Settings
@@ -116,5 +116,5 @@ vim.keymap.set("n", "<leader>jl", function() require("flash").jump({ pattern = "
 require("which-key").setup({})
 
 -- Color Theme
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("catppuccin-mocha") -- Use the "mocha" variant for a darker look
 
