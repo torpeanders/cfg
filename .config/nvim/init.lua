@@ -86,6 +86,7 @@ vim.keymap.set("n", "<leader>sp", ":Telescope live_grep<CR>", { noremap = true, 
 vim.keymap.set("n", "<leader>ss", ":Telescope current_buffer_fuzzy_find<CR>", { noremap = true, silent = true, desc = "Search in current buffer" })
 vim.keymap.set("n", "<leader>bb", ":Telescope buffers<CR>", { noremap = true, silent = true, desc = "List open buffers" })
 vim.keymap.set("n", "<leader>fr", function() require("telescope.builtin").oldfiles() end, { noremap = true, silent = true, desc = "Open recent files" })
+vim.keymap.set("n", "<leader>sP", function() local word = vim.fn.expand("<cword>"); require("telescope.builtin").live_grep({ default_text = word }) end, { noremap = true, silent = true, desc = "Search symbol under cursor (live_grep)" })
 
 -- Git Signs
 require("gitsigns").setup({
