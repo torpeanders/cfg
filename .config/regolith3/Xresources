@@ -1,0 +1,23 @@
+wm.bar.position: top
+
+wm.gaps.focus_follows_mouse: yes
+wm.gaps.inner.size: 5
+wm.gaps.outer.size: 5
+
+wm.workspace.01.name: 1:dev
+wm.workspace.02.name: 2:dev
+wm.workspace.03.name: 3:web
+wm.workspace.04.name: 4:chat
+wm.workspace.09.name: 9:priv
+
+gnome.terminal.font: MesloLGS NF 10
+
+regolith.sway.unsupported_gpu: true
+
+regolith.wallpaper.options: zoom
+!regolith.look.path: /usr/share/regolith-look/catppuccin
+regolith.look.path: /usr/share/regolith-look/lascaille
+!regolith.wallpaper.file: /home/anr/.local/share/backgrounds/2024-08-09-15-19-27-nanjing.jpg
+!regolith.lockscreen.wallpaper.file: /home/anr/.local/share/backgrounds/2024-08-09-15-19-27-nanjing.jpg
+regolith.wallpaper.file: /home/anr/.local/share/backgrounds/2024-08-09-15-19-27-mariringen_moon.jpg
+regolith.lockscreen.wallpaper.file: /home/anr/.local/share/backgrounds/2024-08-09-15-19-27-mariringen_moon.jpg
