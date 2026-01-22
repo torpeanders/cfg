@@ -1,0 +1,17 @@
+input {
+    // focus follows mouse
+    focus-follows-mouse max-scroll-amount="0%"
+
+    keyboard {
+        // remap caps lock to escape
+        xkb {
+            options "caps:escape"
+        }
+    }
+}
+binds {
+    // binding because of muscle memory from regolith
+    Mod+Return { spawn "alacritty"; }
+    // suspend 
+    Mod+Shift+S { spawn "systemctl" "suspend"; }
+}
