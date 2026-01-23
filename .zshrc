@@ -61,6 +61,7 @@ append_to_path "$HOME/.config/emacs/bin"
 append_to_path "$HOME/.fzf/bin"
 append_to_path "$HOME/.scripts"
 append_to_path "$HOME/bin"
+append_to_path "$(ruby -e 'print Gem.user_dir')/bin"
 
 # Set the list of directories that Zsh searches for programs.
 path=(
