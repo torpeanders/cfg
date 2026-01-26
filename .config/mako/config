@@ -1,0 +1,33 @@
+## Mako Configuration for Niri
+
+# --- Colors ---
+background-color=#1d1f21
+text-color=#ffffff
+border-color=#3e4145
+
+# --- Geometry ---
+border-radius=8
+border-size=2
+padding=15
+
+# --- Layout ---
+width=350
+height=150
+anchor=top-right
+margin=20
+
+# --- Typography ---
+font=Sans 11
+
+# --- Behavior ---
+default-timeout=5000
+group-by=app-name
+
+# --- Icons ---
+icons=1
+max-icon-size=48
+
+## --- Urgency Overrides ---
+[urgency=critical]
+border-color=#ff5555
+text-color=#ff5555
