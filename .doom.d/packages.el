@@ -52,6 +52,7 @@
 (package! bm)
 (package! dts-mode)
 (package! feature-mode)
+(package! kdl-mode)
 (package! fzf)
 (package! vscode-dark-plus-theme)
 (package! catppuccin-theme)
