@@ -86,13 +86,6 @@ setopt hist_verify            # show command with history expansion to user befo
 # Custom Functions
 # ==============================================================================
 
-# Wrapper for ssh if ssh-wrapper exists
-if type ssh-wrapper > /dev/null 2>&1; then
-    ssh() {
-        ssh-wrapper "$@"
-    }
-fi
-
 # A gentle reminder instead of a destructive command
 reboot() { echo  "I'm pretty sure you screwed up..."; }
 
