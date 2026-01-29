@@ -94,7 +94,7 @@
 (setq confirm-kill-emacs nil)
 
 ;; looks are important
-;(setq doom-font (font-spec :family "Source Code Pro" :size 15))
+(setq doom-font (font-spec :family "MesloLGS NF" :size 13))
 
 ;; some magit customization
 (setq magit-display-buffer-function
