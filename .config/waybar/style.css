@@ -1,0 +1,100 @@
+* {
+    font-family: "JetBrainsMono Nerd Font", sans-serif;
+}
+
+window#waybar {
+    background: transparent;
+    color: #cdd6f4;
+    font-weight: bold;
+    font-size: 14px;
+    /* This subtle shadow helps readability on transparent backgrounds */
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+    padding: 0 15px;
+}
+
+#window {
+    margin-left: 10px;
+    padding-left: 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Base style for all modules */
+#idle_inhibitor, #pulseaudio, #network, #backlight, #perf, #battery, #clock, #custom-power, #power-profiles-daemon, #keyboard-info {
+    background-color: rgba(30, 30, 46, 0.8); /* Semi-transparent dark blue/grey */
+    border-radius: 12px;
+    padding: 0 9px;
+    margin: 3px 1px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+#keyboard-state { padding: 3px; }
+#cpu, #memory, #temperature { padding: 0 4px; }
+
+/* Colors */
+#battery { color: #a6e3a1; }        /* Green */
+#cpu.warning { color: #fab387; }
+#temperature.warm { color: #f9e2af; }
+#cpu.warning,  #memory.warning,  #temperature.warning,  #battery.warning  { color: #fab387; }
+#cpu.critical, #memory.critical, #temperature.critical, #battery.critical { color: #f38ba8; }
+
+#custom-power { color: #f38ba8; }
+#power-profiles-daemon { color: #fab387; }
+#pulseaudio { color: #89b4fa; }     /* Blue */
+#network { color: #94e2d5; }        /* Teal */
+#keyboard-state.caps { color: #f38ba8; }
+#keyboard-state.num  { color: #89b4fa; }
+#language { color: #fab387; }
+
+
+/* Power Button - sleek and circular */
+#custom-power {
+    background-color: rgba(243, 139, 168, 0.15); /* Tinted background */
+    border: 1px solid rgba(243, 139, 168, 0.4);
+}
+
+#cpu, #memory, #temperature { transition: color 0.5s ease-in-out; }
+
+#idle_inhibitor ,#power-profiles-daemon, #custom-power {
+    min-width: 20px;
+    padding: 0 8px 0 4px;
+}
+#idle_inhibitor { padding: 0 8px 0 0; }
+
+/* Hover effects for interactivity */
+#idle_inhibitor:hover, #pulseaudio:hover, #network:hover, #keyboard-info:hover, #battery:hover, #power-profiles-daemon:hover, #custom-power:hover {
+    background-color: rgba(69, 71, 90, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#workspaces {
+    background-color: rgba(30, 30, 46, 0.8);
+    margin: 4px;
+    border-radius: 12px;
+}
+
+#workspaces button {
+    color: #cdd6f4;
+    padding: 0 8px;
+}
+
+#workspaces button.focused {
+    color: #f38ba8; /* Highlight the active workspace in pink */
+    border-bottom: 2px solid #f38ba8;
+}
+
+#workspaces button.urgent {
+    background-color: #f38ba8;
+    color: #11111b;
+}
+
+tooltip {
+    background: rgba(30, 30, 46, 0.9); /* Match your pill color */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+    padding: 8px;
+}
