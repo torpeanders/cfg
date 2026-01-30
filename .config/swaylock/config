@@ -1,5 +1,7 @@
 image=~/Pictures/wallpapers/mariringen_moon.jpg
 scaling=fill
-indicator-radius=100
-indicator-thickness=10
-color=282828
+indicator-radius=200
+indicator-thickness=20
+color=FFFFFF
+indicator
+indicator-idle-visible
