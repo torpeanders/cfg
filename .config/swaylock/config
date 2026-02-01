@@ -3,5 +3,4 @@ scaling=fill
 indicator-radius=200
 indicator-thickness=20
 color=FFFFFF
-indicator
 indicator-idle-visible
