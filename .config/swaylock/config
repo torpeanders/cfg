@@ -2,5 +2,6 @@ image=~/Pictures/wallpapers/mariringen_moon.jpg
 scaling=fill
 indicator-radius=200
 indicator-thickness=20
-color=FFFFFF
+ring-color=FFFFFFFF
+key-hl-color=00FF00FF
 indicator-idle-visible
