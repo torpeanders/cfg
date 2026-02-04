@@ -197,15 +197,6 @@
            ("DELEGATED" . (:foreground "yellow" :weight bold))
            ("CANCELLED" . (:foreground "red" :weight bold))
            ))
-        (custom-set-faces
-         '(org-level-1 ((t (:weight bold :height 1.4))))
-         '(org-level-2 ((t (:weight bold :height 1.2))))
-         '(org-level-3 ((t (:weight bold :height 1.1))))
-         '(org-level-4 ((t (:weight bold :height 1.0))))
-         '(org-level-5 ((t (:weight bold :height 1.0))))
-         '(org-level-6 ((t (:weight bold :height 1.0))))
-         '(org-level-7 ((t (:weight bold :height 1.0))))
-         '(org-level-8 ((t (:weight bold :height 1.0)))))
         )
 
 ;; magit setup
