@@ -10,7 +10,7 @@
       user-mail-address "anders@ronningen.priv.no")
 
 ;; Authentication
-(after! auth-source
+(with-eval-after-load 'auth-source
   (setq auth-sources '("~/.authinfo" "~/.authinfo.gpg")))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
@@ -186,28 +186,25 @@
 (global-set-key (kbd "C-c <right>") 'winner-redo)
 
 ;; org setup
-(after! org
-        (setq org-tags-column -80)
-        (setq
-         org-todo-keywords
-         '((sequence "TODO(t)" "INPROGRESS(i@)" "|" "DONE(f@)" "DELEGATED(d@)" "CANCELLED(c@)"))
-         org-todo-keyword-faces
-         '(("TODO" . org-warning)
-           ("DONE" . (:foreground "green" :weight bold))
-           ("DELEGATED" . (:foreground "yellow" :weight bold))
-           ("CANCELLED" . (:foreground "red" :weight bold))
-           ))
-        )
+(with-eval-after-load 'org
+  (setq org-tags-column -80)
+  (setq
+   org-todo-keywords
+   '((sequence "TODO(t)" "INPROGRESS(i@)" "|" "DONE(f@)" "DELEGATED(d@)" "CANCELLED(c@)"))
+   org-todo-keyword-faces
+   '(("TODO" . org-warning)
+     ("DONE" . (:foreground "green" :weight bold))
+     ("DELEGATED" . (:foreground "yellow" :weight bold))
+     ("CANCELLED" . (:foreground "red" :weight bold)))))
 
 ;; magit setup
-(after! magit
-        (set-default 'magit-stage-all-confirm nil)
-        (set-default 'magit-unstage-all-confirm nil)
-        (setq magit-ediff-dwim-show-on-hunks t)
-        (setq ediff-window-setup-function 'ediff-setup-windows-plain)
-        (setq ediff-split-window-function 'split-window-horizontally)
-        (setq magit-bury-buffer-function #'magit-restore-window-configuration)
-        )
+(with-eval-after-load 'magit
+  (set-default 'magit-stage-all-confirm nil)
+  (set-default 'magit-unstage-all-confirm nil)
+  (setq magit-ediff-dwim-show-on-hunks t)
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+  (setq ediff-split-window-function 'split-window-horizontally)
+  (setq magit-bury-buffer-function #'magit-restore-window-configuration))
 
 ;; diff init.el to look for new and cool stuff
 (defun anr/ediff-init-and-example ()
@@ -221,8 +218,8 @@
              )
 
 ;; show workspace in modeline
-(after! doom-modeline
-        (setq doom-modeline-persp-name t))
+(with-eval-after-load 'doom-modeline
+  (setq doom-modeline-persp-name t))
 
 ;; no new workspace on project switch
 (setq +workspaces-on-switch-project-behavior nil)
@@ -247,25 +244,25 @@
       "C-x C-s" #'save-buffer)
 
 ;; ace window
-(use-package! ace-window
-              :config
-              (map! :leader
-                    "wM" #'ace-swap-window))
+(use-package ace-window
+  :config
+  (map! :leader
+        "wM" #'ace-swap-window))
 
 ;; lsp mode
-(after! lsp-mode
-        ;; stop formatting while I type
-        (setq lsp-enable-on-type-formatting nil)
-        ;; disable lsp-enable-indentation, too "electric" behavior
-        ;; where also following lines are affected
-        (setq lsp-enable-indentation nil)
-        ;; watching large projects may cause Emacs slow-down
-        (setq lsp-enable-file-watchers nil)
-        ;; disable
-        (setq lsp-lens-enable nil)
-                                        ;(setq lsp-diagnostics-provider :none)
-                                        ;(setq lsp-ui-sideline-enable nil)
-        )
+(with-eval-after-load 'lsp-mode
+  ;; stop formatting while I type
+  (setq lsp-enable-on-type-formatting nil)
+  ;; disable lsp-enable-indentation, too "electric" behavior
+  ;; where also following lines are affected
+  (setq lsp-enable-indentation nil)
+  ;; watching large projects may cause Emacs slow-down
+  (setq lsp-enable-file-watchers nil)
+  ;; disable
+  (setq lsp-lens-enable nil)
+  ;; (setq lsp-diagnostics-provider :none)
+  ;; (setq lsp-ui-sideline-enable nil)
+  )
 
 (when (eq system-type 'darwin)
   ;; Set default frame size (width x height in characters)
